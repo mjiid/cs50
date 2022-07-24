@@ -25,7 +25,6 @@ int main(void)
             num=remain;
             printf("%i\n",num);
         }
-        total=sum;
         total+=num;
         while(num>0){
             num=2*num;
@@ -35,5 +34,6 @@ int main(void)
         }
 
     }
+    total+=sum-1;
     printf("%i\n",total);
 }
