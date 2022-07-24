@@ -17,6 +17,6 @@ int main(void)
         int remain=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
-        printf("%i",remain);
+        printf("%i\n",remain);
     }
 }
