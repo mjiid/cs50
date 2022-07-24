@@ -23,7 +23,8 @@ int main(void)
             num=remain;
             printf("%i\n",num);
         }else if(num*2>=10){
-            num1=
+            num1=num%10;
+            num2=num%100;
         }
     }
     printf("%i\n",sum);
