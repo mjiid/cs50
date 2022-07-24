@@ -23,7 +23,9 @@ int main(void)
             num=remain;
             printf("%i\n",num);
         }
-        sum+=2*num;
+        while(2*num>=10){
+            
+        }
     }
     printf("%i\n",sum);
 }
