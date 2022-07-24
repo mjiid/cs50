@@ -20,7 +20,8 @@ int main(void)
         if(k==0){
             k=1;
         }else{
-            sumOfProducts+=remain *2;
+            sumOfProducts=sumOfProducts + remain *2;
+            k=0;
         }
 
     }
