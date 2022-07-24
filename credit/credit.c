@@ -15,7 +15,7 @@ int main(void)
     for(int i=0; i<numDig;i++){
         int remain = cardNum%10;
         printf("%i\n",remain);
-        cardNum=
+        cardNum=cardNum
     }
 
 }
