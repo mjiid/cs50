@@ -18,7 +18,6 @@ int main(void)
         int remain=0;
         int num=0;
         int rem=0;
-        int first=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
         if(i%2){
@@ -35,13 +34,15 @@ int main(void)
         }
     }
     //First digit of the card number:
-    while(cardNum>=10){
-        cardNum=cardNum/10;
+    int first=0;
+    first=cardNum;
+    while(first>=10){
+        first=first/10;
     }
     total=sum1+sum2-1;
     printf("%i\n",total);
     if(!(total%10)){
-        switch(cardNum){
+        switch(first){
             case 3:
                 printf("AMEX");
             break;
@@ -52,7 +53,7 @@ int main(void)
                 printf("VISA");
             break;
             default:
-                printf("%li\n",cardNum);
+                printf("%i\n",first);
             break;
         }
     }else{
