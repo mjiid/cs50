@@ -40,7 +40,7 @@ int main(void)
     }
     total=sum1+sum2-1;
     printf("%i\n",total);
-    if(total%10){
+    if(!(total%10)){
         switch(cardNum){
             case 3:
                 printf("AMEX");
@@ -50,6 +50,9 @@ int main(void)
             break;
             case 4:
                 printf("VISA");
+            break;
+            default:
+                printf("%li\n",cardNum);
             break;
         }
     }else{
