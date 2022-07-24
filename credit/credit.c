@@ -14,17 +14,16 @@ int main(void)
     }
     //calculate the sum of the products:
     for(int i=0; i<numDig;i++){
-        int score=0;
         int remain = cardNum%10;
         cardNum=cardNum/10;
         int k=0;
         if(k==0){
             k=1;
         }else{
-            score=score + remain *2;
+            sumOfProducts=sumOfProducts + remain *2;
             k=0;
         }
-        sumOfProducts=score;
+
     }
     printf("%i",sumOfProducts);
 
