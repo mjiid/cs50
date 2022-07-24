@@ -29,6 +29,8 @@ int main(void)
             rem= num%10;
             num=num/10;
             sum += rem;
-    }
+        }
 
-}}
+    }
+    printf("The first sum is : %d\n",sum);
+}
