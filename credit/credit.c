@@ -28,8 +28,9 @@ int main(void)
             int rem=num%10;
             num=num/10;
             sum+=rem;
+            printf("%i\n",rem);
         }
-    
+
     }
     printf("%i\n",sum);
 }
