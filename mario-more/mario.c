@@ -24,9 +24,7 @@ int main(void)
             if(j==height+1 || j==height +2){
                 printf(" ");
             }else{
-                if(j<=2*height + i && j > height){
-                    printf("#");
-                }
+                if(j<)
             }
            }
         }
