@@ -23,7 +23,7 @@ int main(void)
             num=remain;
             printf("%i\n",num);
         }
-        while(2*num>=10){
+        while(num>0){
             
         }
     }
