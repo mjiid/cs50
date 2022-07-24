@@ -10,7 +10,7 @@ int main(void)
     }
     for(int i=0; i < height; i++)
     {
-        for(int j=0; j<height*2 + 2; j++)
+        for(int j=0; j<=height*2 + 2; j++)
         {
            if(j<height){
                 if(height-j-1 > i){
@@ -24,7 +24,9 @@ int main(void)
             if(j==height+1 || j==height +2){
                 printf(" ");
             }else{
-                if(j<)
+                if(j<height + 4 +i && j>height){
+                    printf("#");
+                }
             }
            }
         }
