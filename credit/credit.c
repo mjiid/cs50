@@ -37,8 +37,8 @@ int main(void)
     total=sum1+sum2-1;
     printf("%i\n",total);
     if(!(total%10)){
-        printf("VALID");
+        
     }else{
-        printf("INVALID");
+        printf("INVALID\n");
     }
 }
