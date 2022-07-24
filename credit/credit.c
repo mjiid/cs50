@@ -18,5 +18,10 @@ int main(void)
         remain= cardNum % 10;
         cardNum=cardNum/10;
         printf("%i\n",remain);
+        k=0;
+        if(k==)
+        {
+
+        }
     }
 }
