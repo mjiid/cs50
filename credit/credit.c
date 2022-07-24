@@ -18,14 +18,6 @@ int main(void)
         int k=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
-        switch(k){
-            case 0:
-                k=1;
-                continue;
-            case 1:
-                printf("%i\n",remain);
-                k=0;
-                continue;
-        }
+        
     }
 }
