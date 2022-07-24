@@ -14,6 +14,7 @@ int main(void)
     }
     //calculate the sum of the products:
     int sum=0;
+    int total=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
         int num=0;
@@ -24,6 +25,8 @@ int main(void)
             num=remain;
             printf("%i\n",num);
         }
+        total=sum;
+        total+=num;
         while(num>0){
             num=2*num;
             rem=num%10;
@@ -32,5 +35,5 @@ int main(void)
         }
 
     }
-    printf("The first sum is : %d\n",sum);
+    printf("%i\n",total);
 }
