@@ -13,11 +13,17 @@ int main(void)
         printf("INVALID\n");
     }
     //calculate the sum of the products:
+    int sum=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
-        int k=0;
+        int num=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
-        
+        if(i%2){
+            num=remain;
+            printf("%i\n",num);
+        }
+        sum+=num*2;
     }
+    printf("%i\n",sum);
 }
