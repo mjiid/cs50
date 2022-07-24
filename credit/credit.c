@@ -29,6 +29,7 @@ int main(void)
             rem= num%10;
             num=num/10;
             sum += rem;
+            printf(" here %i\n",sum);
         }
 
     }
