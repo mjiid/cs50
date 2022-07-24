@@ -24,7 +24,6 @@ int main(void)
         }else{
             printf("%i\n",remain);
             k=1;
-            continue;
         }
     }
 }
