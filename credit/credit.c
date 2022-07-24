@@ -22,6 +22,7 @@ int main(void)
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
+            printf("%i\n",num);
             while(num>0){
                 num=2*num;
                 rem=num%10;
