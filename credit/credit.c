@@ -22,8 +22,9 @@ int main(void)
         if(i%2){
             num=remain;
             printf("%i\n",num);
+        }else if(num*2>=10){
+            num1=
         }
-        sum+=num*2;
     }
     printf("%i\n",sum);
 }
