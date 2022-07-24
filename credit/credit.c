@@ -34,11 +34,7 @@ int main(void)
         }
     }
     //First digit of the card number:
-    int first=0;
-    first=cardNum;
-    while(first>=10){
-        first=first/10;
-    }
+    int first=(int)(cardNum / pow(10, numDig));
     total=sum1+sum2-1;
     printf("%i\n",total);
     if(!(total%10)){
