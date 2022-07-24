@@ -26,7 +26,7 @@ int main(void)
         while(num>0){
             int rem=0;
             num=2*num;
-            rem= num%10;
+            rem=num%10;
             num=num/10;
             sum += rem;
             printf(" here %i\n",sum);
