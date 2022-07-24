@@ -35,13 +35,23 @@ int main(void)
         }
     }
     //First digit of the card number:
-    while(cardNum){
-        
+    while(cardNum>=10){
+        cardNum=cardNum/10;
     }
     total=sum1+sum2-1;
     printf("%i\n",total);
-    if(!(total%10)){
-
+    if(total%10){
+        switch(cardNum){
+            case 3:
+                printf("AMEX");
+            break;
+            case 5:
+                printf("MASTERCARD");
+            break;
+            case 4:
+                printf("VISA");
+            break;
+        }
     }else{
         printf("INVALID\n");
     }
