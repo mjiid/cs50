@@ -7,7 +7,7 @@ int main(void)
     long cardNum=0;
     cardNum=get_long("Enter your credit card number: \n");
     //Check if the number contains 13, 15 or 16 digits
-    int numDig=(int)log10(cardNum);
+    int numDig=floor(log10(labs( cardNum)) )+1;
     if(numDig<13 || numDig>16 || numDig==14){
         printf("INVALID\n");
     }
@@ -33,10 +33,12 @@ int main(void)
             sum2+=remain;
         }
     }
-    //First digit of the card number:
-    int first=(int)(cardNum / pow(10, numDig));
+
     total=sum1+sum2-1;
     printf("%i\n",total);
+//First digit of the card number:
+    int digits= (int)log10(cardNum);
+    int first=(int)(cardNum / pow(10, digits));
     if(!(total%10)){
         switch(first){
             case 3:
@@ -49,7 +51,7 @@ int main(void)
                 printf("VISA");
             break;
             default:
-                printf("qskdklqsjdkqsjdkl");
+                printf("%i\n",first);
             break;
         }
     }else{
