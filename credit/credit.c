@@ -16,16 +16,14 @@ int main(void)
     int sum=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
-        int num=0;
+        int num=0,num1=0,num2=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
             printf("%i\n",num);
-        }else if(num*2>=10){
-            num1=num%10;
-            num2=num%100;
         }
+        sum+=2*num;
     }
     printf("%i\n",sum);
 }
