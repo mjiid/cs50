@@ -16,7 +16,7 @@ int main(void)
     int sum=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
-        int num=0,num1=0,num2=0;
+        int num=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
         if(i%2){
@@ -27,6 +27,7 @@ int main(void)
             int rem=0;
             num=2*num;
             rem= num%10;
+            printf("%i\n The rem is : ",rem);
             num=num/10;
             sum += rem;
         }
