@@ -37,8 +37,9 @@ int main(void)
     total=sum1+sum2-1;
     printf("%i\n",total);
 //First digit of the card number:
-    int digits= (int)log10(cardNum);
+    int digits = (int)log10(cardNum);
     int first=(int)(cardNum / pow(10, digits));
+    printf("the first number is : %i\n",first);
     if(!(total%10)){
         switch(first){
             case 3:
