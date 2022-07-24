@@ -13,7 +13,7 @@ int main(void)
         printf("INVALID\n");
     }
     //calculate the sum of the products:
-    int sum=0;
+    int sum1=0,sum2=0,total=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
         int num=0;
@@ -27,10 +27,15 @@ int main(void)
                 num=2*num;
                 rem=num%10;
                 num=num/10;
-                sum+=rem;
+                sum1+=rem;
             }
+        }else{
+            sum2+=remain;
         }
-
     }
-    printf("%i\n",sum);
+    total=sum1+sum2-1;
+    printf("%i\n",total);
+    if(!(total%10)){
+        
+    }
 }
