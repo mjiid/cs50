@@ -18,6 +18,7 @@ int main(void)
         int remain=0;
         int num=0;
         int rem=0;
+        int first=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
         if(i%2){
@@ -36,7 +37,7 @@ int main(void)
     total=sum1+sum2-1;
     printf("%i\n",total);
     if(!(total%10)){
-        
+        printf("VALID");
     }else{
         printf("INVALID");
     }
