@@ -11,7 +11,7 @@ int main(void)
     if(numDig<13 || numDig>16 || numDig==14){
         printf("INVALID\n");
     }
-
+    long card=cardNum;
     //calculate the sum of the products:
     int sum1=0,sum2=0,total=0;
     for(int i=0;i<numDig;i++){
@@ -22,7 +22,6 @@ int main(void)
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
-            printf("%i\n",num);
             while(num>0){
                 num=2*num;
                 rem=num%10;
@@ -35,21 +34,19 @@ int main(void)
     }
 
     total=sum1+sum2-1;
-    printf("%i\n",total);
 //First digit of the card number:
-    int digits = (int)log10(cardNum);
-    int first=(int)(cardNum / pow(10, digits));
-    printf("the first number is : %i\n",first);
+    int digits = (int)log10(card);
+    int first=(int)(card / pow(10, digits));
     if(!(total%10)){
         switch(first){
             case 3:
-                printf("AMEX");
+                printf("AMEX\n");
             break;
             case 5:
-                printf("MASTERCARD");
+                printf("MASTERCARD\n");
             break;
             case 4:
-                printf("VISA");
+                printf("VISA\n");
             break;
             default:
                 printf("%i\n",first);
