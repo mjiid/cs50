@@ -32,8 +32,7 @@ int main(void)
             num=num/10;
             sum += rem;
         }
-
     }
-    total+=sum;
-    printf("%i\n",total);
+    sum--;
+    printf("%i\n",sum+total);
 }
