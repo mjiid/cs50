@@ -22,9 +22,9 @@ int main(void)
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
-            printf("%d\n",num);
             while(num>0){
                 num=2*num;
+                printf("%d\n",num);
                 rem=num%10;
                 num=num/10;
                 sum+=rem;
