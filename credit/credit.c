@@ -25,6 +25,7 @@ int main(void)
         }
         while(num>0){
             num=num*2;
+            int rem=num%10;
             
         }
     }
