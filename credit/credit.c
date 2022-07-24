@@ -7,8 +7,8 @@ int main(void)
     long cardNum=0;
     cardNum=get_long("Enter your credit card number: \n");
     int numDig=floor(log10(labs( cardNum)) )+1;
-    if(numDIg<13 || numDig>16 || numDig==14){
-        printf("INVALID");
+    if(numDig<13 || numDig>16 || numDig==14){
+        printf("INVALID\n");
     }
 
 }
