@@ -24,6 +24,7 @@ int main(void)
             printf("%i\n",num);
         }
         while(num>0){
+            num=num*2;
             
         }
     }
