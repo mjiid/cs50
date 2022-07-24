@@ -24,11 +24,9 @@ int main(void)
             printf("%i\n",num);
         }
         while(num>0){
-            int rem=num%10;
-            sum+=rem*2;
-            num=num/10;
+            
         }
-    
+
     }
     printf("%i\n",sum);
 }
