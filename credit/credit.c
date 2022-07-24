@@ -34,6 +34,6 @@ int main(void)
         }
 
     }
-    total+=sum-1;
+    total+=sum;
     printf("%i\n",total);
 }
