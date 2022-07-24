@@ -32,5 +32,5 @@ int main(void)
         }
 
     }
-    printf("%i\n",sum);
+    printf("The first sum is : %d\n",sum);
 }
