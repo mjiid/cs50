@@ -27,8 +27,8 @@ int main(void)
             int rem=0;
             num=2*num;
             rem= num%10;
-            printf("%i\n The rem is : ",rem);
             num=num/10;
+            printf("%i\n The rem is : ",rem);
             sum += rem;
         }
 
