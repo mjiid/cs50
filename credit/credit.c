@@ -37,5 +37,7 @@ int main(void)
     printf("%i\n",total);
     if(!(total%10)){
         
+    }else{
+        printf("INVALID");
     }
 }
