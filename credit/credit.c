@@ -14,6 +14,7 @@ int main(void)
     }
     //calculate the sum of the products:
     for(int i=0; i<numDig;i++){
+        int sumOfProducts
         int remain = cardNum%10;
         cardNum=cardNum/10;
         int k=0;
