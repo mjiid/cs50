@@ -20,9 +20,11 @@ int main(void)
         cardNum=cardNum/10;
         if(k==0){
             k=1;
+            continue;
         }else{
             printf("%i\n",remain);
             k=1;
+            continue;
         }
     }
 }
