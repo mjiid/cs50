@@ -49,7 +49,7 @@ int main(void)
                 printf("VISA");
             break;
             default:
-                printf("%i\n",first);
+                printf("qskdklqsjdkqsjdkl");
             break;
         }
     }else{
