@@ -20,7 +20,7 @@ int main(void)
         int rem=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
-        if(i%2==0){
+        if(){
             num=remain;
             while(num>0){
                 num=2*num;
