@@ -28,8 +28,7 @@ int main(void)
                 num=num/10;
                 sum1+=rem;
             }
-        printf("The sum 1 is : %i\n",sum1);
-        }else{
+clear        }else{
             sum2+=remain;
         }
     }
