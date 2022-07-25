@@ -34,6 +34,7 @@ int main(void)
     }
 
     total=sum1+sum2;
+    printf("%i\n",total);
 //First digit of the card number:
     int digits = (int)log10(card);
     int first=(int)(card / pow(10, digits));
