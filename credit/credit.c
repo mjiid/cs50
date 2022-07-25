@@ -31,7 +31,6 @@ int main(void)
         printf("The sum 1 is : %i\n",sum1);
         }else{
             sum2+=remain;
-            printf("The sum 2 is : %i\n",sum2);
         }
     }
 
