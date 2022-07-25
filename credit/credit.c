@@ -49,10 +49,10 @@ int main(void)
                 printf("VISA\n");
             break;
             default:
-                printf("INVALID\n");
+                printf("INVALID");
             break;
         }
     }else{
-        printf("INVALID\n");
+        printf("INVALID");
     }
 }
