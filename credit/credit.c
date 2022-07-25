@@ -20,7 +20,7 @@ int main(void)
         int rem=0;
         remain= cardNum % 10;
         cardNum=cardNum/10;
-        if(i%2){
+        if(i%2==0){
             num=remain;
             while(num>0){
                 num=2*num;
@@ -50,10 +50,10 @@ int main(void)
                 printf("VISA\n");
             break;
             default:
-                printf("INVALID");
+                printf("INVALID\n");
             break;
         }
     }else{
-        printf("INVALID");
+        printf("INVALID\n");
     }
 }
