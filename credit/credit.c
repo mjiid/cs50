@@ -11,14 +11,14 @@ int main(void)
     if(numDig<13 || numDig>16 || numDig==14){
         printf("INVALID\n");
     }
-    long card=cardNum;
+    long card=cardNum; //store the card number for later use.
     //calculate the sum of the products:
     int sum1=0,sum2=0,total=0;
     for(int i=0;i<numDig;i++){
         int remain=0;
         int num=0;
         int rem=0;
-        remain= cardNum % 10;
+        remain=cardNum % 10;
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
