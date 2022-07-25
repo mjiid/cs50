@@ -28,12 +28,14 @@ int main(void)
                 num=num/10;
                 sum1+=rem;
             }
+            printf("The sum 1 is : %i\n",sum1);
         }else{
             sum2+=remain;
+            printf("The sum 2 is : %i\n",sum2);
         }
     }
 
-    total=sum1+sum2-1;
+    total=sum1+sum2;
     printf("%i\n",total);
 //First digit of the card number:
     int digits = (int)log10(card);
