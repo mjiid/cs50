@@ -22,8 +22,8 @@ int main(void)
         cardNum=cardNum/10;
         if(i%2){
             num=remain;
+            num=2*num;
             while(num>0){
-                num=2*num;
                 rem=num%10;
                 num=num/10;
                 sum1+=rem;
