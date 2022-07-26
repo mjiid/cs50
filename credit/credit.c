@@ -37,7 +37,9 @@ int main(void)
 //First digit of the card number:
     int digits = (int)log10(card);
     int first=(int)(card / pow(10, digits));
-    int second=(int) (card/pow(10,digits-2))%10;
+    int second=(int) (card/pow(10,digits-1))%10;
+    printf("%i\n",first);
+    printf("%i\n",second);
     if(!(total%10)){
         if(first==3 &&(second==4 ||second==7)){
             printf("AMEX\n");
