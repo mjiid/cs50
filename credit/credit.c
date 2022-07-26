@@ -37,22 +37,31 @@ int main(void)
 //First digit of the card number:
     int digits = (int)log10(card);
     int first=(int)(card / pow(10, digits));
-    int second=(int) (card/pow(10,digits-1))%10;
+    int second=(int) (card/pow(10,digits-2))%10;
     if(!(total%10)){
-        switch(first){
-            case 3:
-                printf("AMEX\n");
-            break;
-            case 5:
-                printf("MASTERCARD\n");
-            break;
-            case 4:
-                printf("VISA\n");
-            break;
-            default:
-                printf("INVALID\n");
-            break;
+        if(first==3 &&(second==4 ||second==7)){
+            printf("AMEX\n");
+        }else if(first == 4 ){
+            printf("VISA\n");
+        }else if(first==5 && (second ==1 ||second ==2 ||second ==3 ||second ==4 ||second ==5)){
+            printf("MASTERCARD\n");
+        }else{
+            printf("INVALID\n");
         }
+        // switch(first){
+        //     case 3:
+        //         printf("AMEX\n");
+        //     break;
+        //     case 5:
+        //         printf("MASTERCARD\n");
+        //     break;
+        //     case 4:
+        //         printf("VISA\n");
+        //     break;
+        //     default:
+        //         printf("INVALID\n");
+        //     break;
+        // }
     }else{
         printf("INVALID\n");
     }
