@@ -37,6 +37,7 @@ int main(void)
 //First digit of the card number:
     int digits = (int)log10(card);
     int first=(int)(card / pow(10, digits));
+    int second=(int) (card/pow(10,digits-1))%10;
     if(!(total%10)){
         switch(first){
             case 3:
