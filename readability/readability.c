@@ -12,7 +12,7 @@ int main(void)
     string text=get_string("Text: ");
     printf("%s\n",text);
     int grade=0;
-    float L= (count_letters(text) / count_words(text) ) *100, S=(count_sentences(text)/count_words(text)) *100;
+    double L= (count_letters(text) / count_words(text) ) *100.0, S=(count_sentences(text)/count_words(text)) *100.0;
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
     {
@@ -50,11 +50,12 @@ int count_letters(string text)
 }
 int count_sentences(string text)
 {
+    int sentences=0;
     for( int i=0,n=strlen(text);i<n;i++){
         if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
         {
             sentences++;
         }
     }
-
+    return sentences;
 }
