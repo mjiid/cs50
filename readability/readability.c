@@ -7,7 +7,8 @@ size_t strlen(const char *s);
 int main(void)
 {
     string text=get_string("Text: ");
-    int words=1,letters=0,sentences=0,grade=0;
+    float words=1,letters=0,sentences=0;
+    int grade=0;
     for( int i=0,n=strlen(text);i<n;i++)
     {
         if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
@@ -21,12 +22,7 @@ int main(void)
             letters++;
         }
     }
-    printf("Sen is %i\n",sentences);
-    printf("words is %i\n",words);
-    printf("letters is %i\n",letters);
     float L= (letters / words ) *100, S=(sentences/words) *100;
-    printf("L is %f\n",L);
-    printf("S is %f\n",S);
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
     {
