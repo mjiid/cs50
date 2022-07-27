@@ -24,7 +24,9 @@ int main(void)
     printf("Sen is %i\n",sentences);
     printf("words is %i\n",words);
     printf("letters is %i\n",letters);
-    int L= (letters / words ) *100, S=(sentences/words) *100;
+    double L= (letters / words ) *100.0, S=(sentences/words) *100.0;
+    printf("L is %f\n",L);
+    printf("S is %f\n",S);
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
     {
