@@ -39,7 +39,6 @@ int compute_score(string word)
         if((int) character >65 && (int) character <90){
             score+=POINTS[(int) character - 64];
         }
-    return score;
     }
     return score;
 }
