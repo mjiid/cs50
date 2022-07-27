@@ -4,6 +4,10 @@
 #include <string.h>
 size_t strlen(const char *s);
 
+int count_words(string text);
+int count_letters(string text);
+
+
 int main(void)
 {
     string text=get_string("Text: ");
@@ -36,16 +40,22 @@ int count_words(string text)
 int count_letters(string text)
 {
     int letters=0;
-    if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
+    for( int i=0,n=strlen(text);i<n;i++){
+        if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
         {
             letters++;
         }
+    }
+
     return letters;
 }
 int count_sentences(string text)
 {
-    if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
+    for( int i=0,n=strlen(text);i<n;i++){
+        if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
         {
             sentences++;
         }
+    }
+
 }
