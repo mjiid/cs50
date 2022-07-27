@@ -8,21 +8,7 @@ int main(void)
 {
     string text=get_string("Text: ");
     printf("%s\n",text);
-    float words=1,letters=0,sentences=0;
     int grade=0;
-    for( int i=0,n=strlen(text);i<n;i++)
-    {
-        if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
-        {
-            sentences++;
-        }else if(text[i]==' ')
-        {
-            words++;
-        }else if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
-        {
-            letters++;
-        }
-    }
     float L= (letters / words ) *100, S=(sentences/words) *100;
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
@@ -32,4 +18,34 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
+}
+
+int count_words(string text)
+{
+    int words=0;
+    for( int i=0,n=strlen(text);i<n;i++)
+    {
+        if(text[i]==' ')
+        {
+            words++;
+        }
+    }
+
+    return words;
+}
+int count_letters(string text)
+{
+    int letters=0;
+    if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
+        {
+            letters++;
+        }
+    return letters;
+}
+int count_sentences(string text)
+{
+    if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
+        {
+            sentences++;
+        }
 }
