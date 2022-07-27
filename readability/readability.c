@@ -6,14 +6,13 @@ size_t strlen(const char *s);
 
 int count_words(string text);
 int count_letters(string text);
-
-
+int count_sentences(string text);
 int main(void)
 {
     string text=get_string("Text: ");
     printf("%s\n",text);
     int grade=0;
-    float L= (letters / words ) *100, S=(sentences/words) *100;
+    float L= (count_letters(text) / count_words(text) ) *100, S=(count_sentences(text)/count_words(text)) *100;
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
     {
