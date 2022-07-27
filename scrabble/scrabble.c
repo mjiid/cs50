@@ -35,7 +35,7 @@ int compute_score(string word)
     int score=0;
     for(int i=0,n=strlen(word);i<n;i++){
         character=word[i];
-        character=character.toupper();
+        character=toupper(character);
         score+=POINTS[(int) character - 64];
     }
     return score;
