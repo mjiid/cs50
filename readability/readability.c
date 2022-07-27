@@ -1,10 +1,11 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 {
     string text=get_string("Text: ");
-    int words=0,letters=0,sentences=0,Grad;
+    int words=0,letters=0,sentences=0,grade=0;
     for( int i=0,n=strlen(text);i<n;i++)
     {
         if(text[i]=='.' || text[i]=='?'|| text[i]=='!')
@@ -18,5 +19,6 @@ int main(void)
             letters++;
         }
     }
-    return
+    int L= (letters / words ) *100, S=
+    grade=round(0.0588 * L - 0.296 * S - 15.8)
 }
