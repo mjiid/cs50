@@ -29,6 +29,6 @@ int main(void)
         printf("Grade %i\n",grade);
     }else
     {
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
 }
