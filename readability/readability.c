@@ -29,7 +29,7 @@ int main(void)
 int count_words(string text)
 {
     int words=1;
-    for( int i=0,n=strlen(text);i<n;i++)
+    for (int i = 0, n = strlen(text); i < n ; i++)
     {
         if(text[i]==' ')
         {
@@ -42,8 +42,9 @@ int count_words(string text)
 int count_letters(string text)
 {
     int letters=0;
-    for( int i=0,n=strlen(text);i<n;i++){
-        if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
+    for( int i=0,n=strlen(text);i<n;i++)
+    {
+        if( ((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
         {
             letters++;
         }
