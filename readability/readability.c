@@ -10,15 +10,9 @@ int count_sentences(string text);
 int main(void)
 {
     string text=get_string("Text: ");
-    printf("%s\n",text);
-    printf("Letters are %i\n",count_letters(text));
-    printf("words are %i\n",count_words(text));
-    printf("sentences are %i\n",count_sentences(text));
     int grade=0;
     float L=  (count_letters(text) / (float)count_words(text) ) *100;
     float S=(count_sentences(text)/ (float)count_words(text)) *100;
-    printf("L is %f\n",L);
-    printf("S is %f\n",S);
     grade=round(0.0588 * L - 0.296 * S - 15.8);
     if(grade<16)
     {
