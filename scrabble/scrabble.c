@@ -31,8 +31,12 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
+    char character;
+    int score=0;
     for(int i=0,n=strlen(word);i<n;i++){
-        
+        character=word[i];
+        character=character.toupper();
+        score+=POINTS[(int) character - 64];
     }
-
+    return score;
 }
