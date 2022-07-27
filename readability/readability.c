@@ -19,6 +19,13 @@ int main(void)
             letters++;
         }
     }
-    int L= (letters / words ) *100, S=
-    grade=round(0.0588 * L - 0.296 * S - 15.8)
+    int L= (letters / words ) *100, S=(sentences/words) *100;
+    grade=round(0.0588 * L - 0.296 * S - 15.8);
+    if(grade<16)
+    {
+        printf("Grade %i\n",grade);
+    }else
+    {
+        printf("Grade 16+");
+    }
 }
