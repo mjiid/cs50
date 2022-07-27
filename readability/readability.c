@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+size_t strlen(const char *s);
 
 int main(void)
 {
