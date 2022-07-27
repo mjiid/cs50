@@ -18,7 +18,7 @@ int main(void)
         }else if(text[i]==' ')
         {
             words++;
-        }else if((int)text[i]!=39)
+        }else if(((int)text[i]>=65 && (int) text[i]<=90) || ((int)text[i]>=97 && (int) text[i]<=122) )
         {
             letters++;
         }
