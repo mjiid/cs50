@@ -7,6 +7,7 @@ size_t strlen(const char *s);
 int main(void)
 {
     string text=get_string("Text: ");
+    printf("%s\n",text);
     float words=1,letters=0,sentences=0;
     int grade=0;
     for( int i=0,n=strlen(text);i<n;i++)
