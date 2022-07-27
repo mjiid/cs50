@@ -12,9 +12,9 @@ int main(void)
     string text=get_string("Text: ");
     int grade=0;
     float L=  (count_letters(text) / (float)count_words(text) ) *100;
-    float S=(count_sentences(text)/ (float)count_words(text)) *100;
+    float S= (count_sentences(text)/ (float)count_words(text)) *100;
     grade=round(0.0588 * L - 0.296 * S - 15.8);
-    if(grade<16)
+    if(grade<16 && grade>=1)
     {
         printf("Grade %i\n",grade);
     }else if(grade <1){
