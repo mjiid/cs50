@@ -16,12 +16,12 @@ int main(void)
         }else if(text[i]==' ')
         {
             words++;
-        }else
+        }else if((int)text[i]!=39)
         {
             letters++;
         }
     }
-    printf("Sen is %i\n:",sentences);
+    printf("Sen is %i\n",sentences);
     printf("words is %i\n",words);
     printf("letters is %i\n",letters);
     int L= (letters / words ) *100, S=(sentences/words) *100;
