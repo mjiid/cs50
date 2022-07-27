@@ -36,8 +36,8 @@ int compute_score(string word)
     for(int i=0,n=strlen(word);i<n;i++){
         character=word[i];
         character=toupper(character);
-        printf("%c\n",character);
         if((int) character >65 && (int) character <90){
+            printf("%i\n",(int) character - 64);
             score+=POINTS[(int) character - 64];
         }
     }
