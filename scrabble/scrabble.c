@@ -36,7 +36,10 @@ int compute_score(string word)
     for(int i=0,n=strlen(word);i<n;i++){
         character=word[i];
         character=toupper(character);
-        score+=POINTS[(int) character - 64];
+        if((int) character >65 && (int) character <90){
+            score+=POINTS[(int) character - 64];
+        }
+    return score;
     }
     return score;
 }
