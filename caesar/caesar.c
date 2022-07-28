@@ -23,7 +23,7 @@ bool only_digits(string anykey)
 {
     for (int i = 0, n= strlen(anykey);i<n;i++)
     {
-        int keynum = atoi(anykey);
+        int keynum = atoi(anykey[i]);
         if(keynum +48<48 || keynum+48<57)
         {
             return false;
