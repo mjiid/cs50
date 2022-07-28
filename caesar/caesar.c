@@ -31,6 +31,6 @@ int main(int argc, string argv[])
 
             }
         }
-        printf("Cipher text: %s",plaintext);
+        printf("the key is : %i",key);
     }
 }
