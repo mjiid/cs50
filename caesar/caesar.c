@@ -7,13 +7,13 @@
 bool only_digits(string anykey);
 int main(int argc, string argv[])
 {
-    int k = atoi(argv[1]);
+    string k = argv[1];
     if(argc!=2)
     {
         printf("Error!\n");
         return 1;
     }
-    printf("%d\n",only_digits);
+    printf("%d\n",only_digits(k));
 
 
 }
@@ -30,5 +30,5 @@ bool only_digits(string anykey)
             return false;
         }
     }
-    return true
+    return true;
 }
