@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 bool only_digits(string anykey);
-void rotate(string plaintext);
+void rotate(string plaintext,int key);
 int main(int argc, string argv[])
 {
     string k = argv[1];
@@ -43,10 +43,13 @@ bool only_digits(string anykey)
     return true;
 }
 
-void rotate(string plaintext)
+void rotate(string plaintext,int key)
 {
     for (int i = 0, n= strlen(plaintext);i<n;i++)
     {
-        while()
+        while(key > 26)
+        {
+            key = key - 26;
+        }
     }
 }
