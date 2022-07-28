@@ -11,7 +11,7 @@ int main(int argc, string argv[])
         printf("Error \n");
         return 1;
     }
-    else if(48 + key<48 || 48 + key >57)
+    else if(48 + key<48 || 48 + key >57 || argc>2)
     {
         printf("Usage: ./caesar key \n");
         return 1;
@@ -24,11 +24,11 @@ int main(int argc, string argv[])
         {
             if(((int) plaintext[i] >= 65 && (int) plaintext[i] <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext[i] <= 122))
             {
-²               while (key >=26)
+                while (key >=26)
                 {
                     key = key - 26;
                 }
-                
+
             }
         }
         printf("Cipher text: %s",plaintext);
