@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
+bool only_digits(string anykey);
 int main(int argc, string argv[])
 {
     int key= atoi(argv[1]);
@@ -32,5 +34,17 @@ int main(int argc, string argv[])
             }
         }
         printf("the key is : %i",key);
+    }
+}
+
+bool only_digits(string anykey)
+{
+    for (int i =0 , n = strlen(anykey);i<n;i++)
+    {
+        if((int) anykey[i] +48>48 || (int) anykey[i] +48<57)
+        {
+            return False;
+        }
+        return True;
     }
 }
