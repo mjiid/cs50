@@ -8,12 +8,12 @@ bool only_digits(string anykey);
 int main(int argc, string argv[])
 {
     string k = argv[1];
-    if(argc!=2)
+    if(argc<2)
     {
         printf("Error!\n");
         return 1;
     }
-    else if (only_digits(k) || )
+    else if (only_digits(k) || argc>)
 
 
 }
