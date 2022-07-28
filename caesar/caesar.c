@@ -29,6 +29,8 @@ int main(int argc, string argv[])
                 if(key<26-(int) plaintext[i])
                 {
                     plaintext[i]=(char) ((int) plaintext[i] + key);
+                }else{
+                    
                 }
             }
         }
