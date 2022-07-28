@@ -8,7 +8,7 @@ bool only_digits(string anykey);
 int main(int argc, string argv[])
 {
     string k = argv[1];
-    if(argc!=2 || only_digits(k))
+    if(argc!=2 || !(only_digits(k)))
     {
         printf("Usage: ./caesar key\n");
         return 1;
