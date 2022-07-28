@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, string argv[])
 {
@@ -20,16 +21,17 @@ int main(int argc, string argv[])
         string plaintext=get_string("plaintext : ");
         for (int i = 0, n = strlen(plaintext);i<n;i++)
         {
-            if(((int) plaintext[i] >= 65 && (int) plaintext <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext <= 122))
+            if(((int) plaintext[i] >= 65 && (int) plaintext[i] <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext[i] <= 122))
             {
                 while(key >=26){
                     key=key - 26;
                 }
                 if(key<26-(int) plaintext[i])
                 {
-                    plaintext[i]=(char) ((int) plaintext + key);
+                    plaintext[i]=(char) ((int) plaintext[i] + key);
                 }
             }
+        printf("Cipher text: %s",plaintext);
         }
     }
 }
