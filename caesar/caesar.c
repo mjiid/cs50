@@ -13,7 +13,7 @@ int main(int argc, string argv[])
         printf("Error!\n");
         return 1;
     }
-    printf("%d\n",only_digits(k));
+    else if (only_digits(k) || )
 
 
 }
