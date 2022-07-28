@@ -3,5 +3,5 @@
 
 int main(int argc, string argv[])
 {
-    
+    int key= (int) argv[]
 }
