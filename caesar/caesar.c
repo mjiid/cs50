@@ -7,7 +7,7 @@ int main(int argc, string argv[])
     if(argc<2)
     {
         printf("Error \n");
-        exit(-1);
+        return 1;
     }else
     {
         int key= atoi(argv[1]);
