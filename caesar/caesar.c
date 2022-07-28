@@ -5,13 +5,13 @@
 
 int main(int argc, string argv[])
 {
-    string key= argv[1];
+    int key= atoi(argv[1]);
     if(argc<2)
     {
         printf("Error \n");
         return 1;
     }
-    else if((int) key<48 || (int) key >57)
+    else if(48 + key<48 || 48 + key >57)
     {
         printf("Usage: ./caesar key \n");
         return 1;
@@ -31,7 +31,7 @@ int main(int argc, string argv[])
                     plaintext[i]=(char) ((int) plaintext[i] + key);
                 }
             }
-        printf("Cipher text: %s",plaintext);
         }
+        printf("Cipher text: %s",plaintext);
     }
 }
