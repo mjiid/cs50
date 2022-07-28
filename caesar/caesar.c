@@ -43,8 +43,8 @@ bool only_digits(string anykey)
     {
         if((int) anykey[i] +48>48 || (int) anykey[i] +48<57)
         {
-            return False;
+            return false;
         }
-        return True;
+        return true;
     }
 }
