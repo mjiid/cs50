@@ -6,7 +6,7 @@ int main(int argc, string argv[])
 {
     int key= atoi(argv[1]);
     int *keyAdd= &key;
-    printf("%u\n",keyAdd);
+    printf("%i\n",keyAdd);
     if(keyAdd==NULL){
         printf("Error\n");
     }else{
