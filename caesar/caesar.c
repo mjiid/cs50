@@ -20,7 +20,13 @@ int main(int argc, string argv[])
         string plaintext=get_string("plaintext : ");
         for (int i = 0, n = strlen(plaintext);i<n;i++)
         {
-            if((int) plaintext[i]  )
+            if(((int) plaintext[i] >= 65 && (int) plaintext <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext <= 122))
+            {
+                if(key<26-(int) plaintext[i])
+                {
+                    plaintext[i]=
+                }
+            }
         }
     }
 }
