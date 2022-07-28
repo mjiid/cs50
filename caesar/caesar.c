@@ -24,7 +24,7 @@ int main(int argc, string argv[])
         {
             if(((int) plaintext[i] >= 65 && (int) plaintext[i] <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext[i] <= 122))
             {
-²               
+²               while (key >=26)
             }
         }
         printf("Cipher text: %s",plaintext);
