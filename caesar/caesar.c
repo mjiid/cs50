@@ -4,5 +4,14 @@
 
 int main(int argc, string argv[])
 {
-    printf("%s\n",argv[1]);
+    if(argv[1]=='(null)')
+    {
+        printf("Error\n");
+    }
+    else
+    {
+        int key = atoi(argv[1]);
+
+    }
+
 }
