@@ -8,7 +8,9 @@ int main(int argc, string argv[])
     int *keyAdd= &key;
     printf("%u\n",keyAdd);
     if(keyAdd==NULL){
-        printf("Error");
+        printf("Error\n");
+    }else{
+        string plaintext=get_string("Plaintext: ");
     }
-    string plaintext=get_string("Plaintext: ");
+
 }
