@@ -47,6 +47,6 @@ void rotate(string plaintext)
 {
     for (int i = 0, n= strlen(plaintext);i<n;i++)
     {
-        
+        while()
     }
 }
