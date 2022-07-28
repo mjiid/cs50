@@ -31,6 +31,7 @@ int main(int argc, string argv[])
                 {
                     plaintext[i]=(char) ((int) plaintext[i] + key);
                 }else{
+                    key = 26 - key;
                     
                 }
             }
