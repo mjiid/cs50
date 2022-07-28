@@ -9,7 +9,6 @@ void rotate(string plaintext);
 int main(int argc, string argv[])
 {
     string k = argv[1];
-    printf("%d\n",only_digits(k));
     if(argc<2 || !(only_digits(k)))
     {
         printf("Usage: ./caesar key\n");
@@ -36,8 +35,7 @@ bool only_digits(string anykey)
     for (int i = 0, n= strlen(anykey);i<n;i++)
     {
         int keynum = anykey[i];
-        printf("")
-        if(keynum +48<48 || keynum+48>57)
+        if(keynum <48 || keynum>57)
         {
             return false;
         }
@@ -49,6 +47,6 @@ void rotate(string plaintext)
 {
     for (int i = 0, n= strlen(plaintext);i<n;i++)
     {
-
+        
     }
 }
