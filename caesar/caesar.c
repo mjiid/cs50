@@ -6,6 +6,7 @@
 int main(int argc, string argv[])
 {
     int key= atoi(argv[1]);
+    printf("%")
     if(argc<2)
     {
         printf("Error \n");
