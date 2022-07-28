@@ -22,9 +22,12 @@ int main(int argc, string argv[])
         {
             if(((int) plaintext[i] >= 65 && (int) plaintext <= 90) || ((int) plaintext[i] >= 97 && (int) plaintext <= 122))
             {
+                while(key >=26){
+                    key=key - 26;
+                }
                 if(key<26-(int) plaintext[i])
                 {
-                    plaintext[i]=
+                    plaintext[i]=(char) ((int) plaintext + key);
                 }
             }
         }
