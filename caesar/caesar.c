@@ -13,6 +13,10 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
+    else
+    {
+        
+    }
 
 
 }
@@ -26,8 +30,7 @@ bool only_digits(string anykey)
     for (int i = 0, n= strlen(anykey);i<n;i++)
     {
         int keynum = anykey[i];
-        printf("%d\n",keynum);
-        if(keynum +48<48 || keynum+48<57)
+        if(keynum +48<48 || keynum+48>57)
         {
             return false;
         }
