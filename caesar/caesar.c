@@ -4,13 +4,19 @@
 
 int main(int argc, string argv[])
 {
+    int key= atoi(argv[1]);
     if(argc<2)
     {
         printf("Error \n");
         return 1;
-    }else
+    }
+    else if((int) key<48 || (int) key >57)
     {
-        int key= atoi(argv[1]);
-        printf("%i\n",key);
+        printf("Usage: ./caesar key \n");
+        return 1;
+    }
+    else
+    {
+        
     }
 }
