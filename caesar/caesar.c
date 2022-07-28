@@ -17,6 +17,10 @@ int main(int argc, string argv[])
     }
     else
     {
-        
+        string plaintext=get_string("plaintext : ");
+        for (int i = 0, n = strlen(plaintext);i<n;i++)
+        {
+            if((int) plaintext[i]  )
+        }
     }
 }
