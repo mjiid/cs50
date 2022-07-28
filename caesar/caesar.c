@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 bool only_digits(string anykey);
+void rotate(string plaintext);
 int main(int argc, string argv[])
 {
     string k = argv[1];
@@ -15,10 +16,14 @@ int main(int argc, string argv[])
     }
     else
     {
-        
+        int keyasnum = atoi(k);
+        string plaintext=get_string("Plaintext: ");
+
+
+
     }
 
-
+    return 0;
 }
 
 
@@ -36,4 +41,12 @@ bool only_digits(string anykey)
         }
     }
     return true;
+}
+
+void rotate(string plaintext)
+{
+    for (int i = 0, n= strlen(plaintext);i<n;i++)
+    {
+        
+    }
 }
