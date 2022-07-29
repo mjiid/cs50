@@ -40,27 +40,5 @@ int main(int argc, string argv[])
             }
         }
     }
-    // the user provided a valid key:
-    string plaintext=get_string("Plaintext: ");
-    for (int i = 0,n=strlen(plaintext);i<n;i++)
-    {
-        if(isalpha(plaintext[i]))
-        {
-            if(isupper(plaintext[i]))
-            {
-                plaintext[i] = toupper(key[(int) plaintext[i] - 65]);
-            }
-            else if (islower(plaintext[i]))
-            {
-                plaintext[i] = tolower(key[(int) plaintext[i] - 97]);
-            }
-            else
-            {
-                continue;
-            }
-        }
-    }
-    printf("%s\n",plaintext);
-
-
+    
 }
