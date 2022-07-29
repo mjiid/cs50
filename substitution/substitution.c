@@ -48,10 +48,19 @@ int main(int argc, string argv[])
         {
             if(isupper(plaintext[i]))
             {
-                
+                plaintext[i] = key[(int) plaintext[i] - 65];
+            }
+            else if (islower(plaintext[i]))
+            {
+                plaintext[i] = key[(int) plaintext[i] - 97];
+            }
+            else
+            {
+                continue;
             }
         }
     }
+    printf("%s\n",plaintext);
 
 
 }
