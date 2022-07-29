@@ -48,11 +48,11 @@ int main(int argc, string argv[])
         {
             if(isupper(plaintext[i]))
             {
-                plaintext[i] = key[(int) plaintext[i] - 65];
+                plaintext[i] = toupper(key[(int) plaintext[i] - 65]);
             }
             else if (islower(plaintext[i]))
             {
-                plaintext[i] = key[(int) plaintext[i] - 97];
+                plaintext[i] = tolower(key[(int) plaintext[i] - 97]);
             }
             else
             {
