@@ -41,7 +41,11 @@ int main(int argc, string argv[])
         }
     }
     // the user provided a valid key:
-    
+    string plaintext=get_string("Plaintext: ");
+    for (int i = 0,n=strlen(plaintext);i<n;i++)
+    {
+        
+    }
 
 
 }
