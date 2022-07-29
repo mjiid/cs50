@@ -21,7 +21,7 @@ int main(int argc, string argv[])
         {
             if(!(isalpha(key[i])))
             {
-                printf("")
+                printf("The key must contain only characters!\n");
             }
         }
     }
