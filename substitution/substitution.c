@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main(int argc, string argv[])
 {
@@ -26,6 +27,14 @@ int main(int argc, string argv[])
             else
             {
                 char c = tolower(key[i]);
+                for(int j = i+1; j < keylength;j++)
+                {
+                    if(tolower(key[j]) == c)
+                    {
+                        printf("The key must not contain repeated characters\n");
+                        return 1;
+                    }
+                }
             }
         }
     }
