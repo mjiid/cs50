@@ -23,6 +23,10 @@ int main(int argc, string argv[])
             {
                 printf("The key must contain only characters!\n");
             }
+            else
+            {
+                
+            }
         }
     }
 }
