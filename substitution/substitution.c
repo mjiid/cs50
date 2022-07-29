@@ -61,5 +61,5 @@ int main(int argc, string argv[])
         }
         printf("%s\n",plaintext);
     }
-
+    return 0;
 }
