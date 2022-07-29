@@ -25,7 +25,7 @@ int main(int argc, string argv[])
             }
             else
             {
-                
+                char c = tolower(key[i]);
             }
         }
     }
