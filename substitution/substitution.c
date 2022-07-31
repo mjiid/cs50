@@ -56,7 +56,7 @@ int main(int argc, string argv[])
                     continue;
                 }
         }
-        printf("Ciphertext: %s\n",plaintext);
+        printf("ciphertext: %s\n",plaintext);
     }
     return 0;
 }
