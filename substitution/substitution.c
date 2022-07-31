@@ -26,7 +26,7 @@ int main(int argc, string argv[])
                 printf("The key must contain only characters!\n");
                 return 1;
             }
-            else
+            else if(isalpha(key[i]))
             {
                 char c = tolower(key[i]);
                 for(int j = i+1; j < keylength;j++)
@@ -38,23 +38,26 @@ int main(int argc, string argv[])
                     }
                 }
             }
-        }
-        // the user provided a valid key:
-        string plaintext=get_string("Plaintext: ");
-        for (int i = 0,n=strlen(plaintext);i<n;i++)
-        {
-                if(isupper(plaintext[i]))
+            else
+            {
+                // the user provided a valid key:
+                string plaintext=get_string("Plaintext: ");
+                for (int j = 0,n=strlen(plaintext);j<n;j++)
                 {
-                    plaintext[i] = toupper(key[(int) plaintext[i] - 65]);
+                        if(isupper(plaintext[j]))
+                        {
+                            plaintext[i] = toupper(key[(int) plaintext[i] - 65]);
+                        }
+                        else if (islower(plaintext[i]))
+                        {
+                            plaintext[i] = tolower(key[(int) plaintext[i] - 97]);
+                        }
+                        else
+                        {
+                            continue;
+                        }
                 }
-                else if (islower(plaintext[i]))
-                {
-                    plaintext[i] = tolower(key[(int) plaintext[i] - 97]);
-                }
-                else
-                {
-                    continue;
-                }
+            }
         }
         printf("ciphertext: %s\n",plaintext);
     }
