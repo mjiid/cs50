@@ -1,16 +1,63 @@
 #include <cs50.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
-int main(int argc, char** argv)
+int main(int argc, string argv[])
 {
-    string key=argv[1];
     int keylength=strlen(key);
-    if(argc<3) // the user doesn't provide a key at all or more than one key.
+    if(argc!=2) // the user doesn't provide a key at all or more than one key.
     {
         printf("Usage: ./substitution key\n");
-        exit(1);
+        return 1;
     }
+    else if(keylength!=26) // the user provide a key with a length less than or greater than 26.
+    {
+
+        printf("Key must contain 26 characters.\n");
+        return 1;
+    }
+    else // the key contains a number or contains a repeated character.
+    {
+        for(int i = 0;i<keylength;i++)
+        {
+            if(!(isalpha(key[i])))
+            {
+                printf("The key must contain only characters!\n");
+                return 1;
+            }
+            else
+            {
+                char c = tolower(key[i]);
+                for(int j = i+1; j < keylength;j++)
+                {
+                    if(tolower(key[j]) == c)
+                    {
+                        printf("The key must not contain repeated characters\n");
+                        return 1;
+                    }
+                }
+            }
+        }
+        // the user provided a valid key:
+        string plaintext=get_string("Plaintext: ");
+        string key=argv[1];
+        for (int i = 0,n=strlen(plaintext);i<n;i++)
+        {
+                if(isupper(plaintext[i]))
+                {
+                    plaintext[i] = toupper(key[(int) plaintext[i] - 65]);
+                }
+                else if (islower(plaintext[i]))
+                {
+                    plaintext[i] = tolower(key[(int) plaintext[i] - 97]);
+                }
+                else
+                {
+                    continue;
+                }
+        }
+        printf("ciphertext: %s\n",plaintext);
+    }
+    return 0;
 }
