@@ -5,6 +5,7 @@
 
 int main(int argc, string argv[])
 {
+    string key=argv[1];
     int keylength=strlen(key);
     if(argc!=2) // the user doesn't provide a key at all or more than one key.
     {
@@ -13,7 +14,6 @@ int main(int argc, string argv[])
     }
     else if(keylength!=26) // the user provide a key with a length less than or greater than 26.
     {
-
         printf("Key must contain 26 characters.\n");
         return 1;
     }
@@ -41,7 +41,6 @@ int main(int argc, string argv[])
         }
         // the user provided a valid key:
         string plaintext=get_string("Plaintext: ");
-        string key=argv[1];
         for (int i = 0,n=strlen(plaintext);i<n;i++)
         {
                 if(isupper(plaintext[i]))
