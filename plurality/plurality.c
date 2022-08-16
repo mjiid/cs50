@@ -85,11 +85,12 @@ void print_winner(void)
     candidate winner = candidates[0];
     for(int i = 0; i < candidate_count; i++)
     {
-        if(winner.votes >= candidates[i].votes)
+        if(winner.votes < candidates[i].votes)
         {
             winner = candidates[i];
         }
     }
+    printf("the winner is %s and has %d votes \n",winner.name,winner.votes);
     printf("%s\n",winner.name);
     return;
 }
