@@ -90,11 +90,6 @@ void print_winner(void)
         {
             winner = candidate[i];
         }
-        else if(winner.votes == candidate[i].votes)
-        {
-            winners[0]=winner.name;
-            
-        }
     }
     return;
 }
