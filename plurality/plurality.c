@@ -83,7 +83,6 @@ void print_winner(void)
 {
     // TODO
     candidate winner = candidates[0];
-    string winners[];
     for(int i = 0; i < candidate_count; i++)
     {
         if(winner.votes < candidates[i].votes)
@@ -92,5 +91,5 @@ void print_winner(void)
         }
     }
     printf("%s\n",winner.name);
-    return 0;
+    return;
 }
