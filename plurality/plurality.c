@@ -91,5 +91,5 @@ void print_winner(void)
             winner = candidate[i];
         }
     }
-    return;
+    return 0;
 }
