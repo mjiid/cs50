@@ -9,15 +9,11 @@ int main(void)
     }
     while(n <= 0)
 
-    for (int j = 0; j < n; j++)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
         {
-            if ( i == n + 1 || i == n + 2)
-            {
-                printf(" ");
-            }
-            else if (i )
+
         }
     }
 }
