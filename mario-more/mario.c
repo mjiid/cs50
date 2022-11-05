@@ -11,6 +11,9 @@ int main(void)
 
     for (int i = 0; i < n; i++)
     {
-        
+        if ( i == 5 || i == 6)
+        {
+            printf(" ");
+        }
     }
 }
