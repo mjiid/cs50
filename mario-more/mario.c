@@ -14,7 +14,7 @@ int main(void)
     {
         for (int j = 0; j <= 2*n+2; j++)
         {
-            if(j =)
+            if(j == )
             {
                 printf("#");
             }
