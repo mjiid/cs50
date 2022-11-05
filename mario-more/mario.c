@@ -3,17 +3,20 @@
 
 int main(void)
 {
+    int n = 0;
     do
     {
-        int n = get_int("Enter the number of bricks : ");
+        n = get_int("Enter the number of bricks : ");
     }
-    while(n <= 0)
+    while(n <= 0);
 
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            
+            if()
+            printf("#");
         }
+        printf("\n");
     }
 }
