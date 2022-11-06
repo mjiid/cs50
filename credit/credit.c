@@ -21,9 +21,20 @@ int main(void)
         while (card_cpy > 0)
         {
             remainder = card_cpy % 10;
-            card_cpy = card_cpy / 100;
-            
+            card_cpy = card_cpy / 10;
+            if (k)
+            {
+                sum1 += 2 * remainder;
+                k = 0;
+            }
+            else
+            {
+                sum2 += remainder;
+                k = 1;
+            }
         }
+        printf("%d\n",sum1);
+        printf("%d\n",sum2);
 
     }
 
