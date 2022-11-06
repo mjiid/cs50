@@ -65,7 +65,7 @@ int main(void)
             printf("AMEX\n");
             return 0;
         }
-        else if (two == 51 ||two == 52 ||two == 53 ||two == 54)
+        else if (two == 51 ||two == 52 ||two == 53 ||two == 54 ||two == 55 )
         {
             printf("MASTERCARD\n");
             return 0;
