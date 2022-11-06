@@ -21,11 +21,6 @@ int main(void)
         while (card_cpy > 0)
         {
             remainder = card_cpy % 10;
-            d_rem = 2* remainder;
-            while ( d_rem > 0 )
-            {
-                
-            }
             card_cpy = card_cpy / 10;
         }
         printf("%d\n",sum1);
