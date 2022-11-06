@@ -24,14 +24,14 @@ int main(void)
             card_cpy = card_cpy / 100;
             if (k)
             {
-                printf("%d",remainder);
+                printf("%d\n",remainder);
                 sum1 += 2 * remainder;
-                k = 1;
+                k = 0;
             }
             else
             {
                 sum2 += remainder;
-                k = 0;
+                k = 1;
             }
         }
 
