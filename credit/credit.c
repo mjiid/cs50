@@ -22,17 +22,7 @@ int main(void)
         {
             remainder = card_cpy % 10;
             card_cpy = card_cpy / 100;
-            if (k)
-            {
-                printf("%d\n",remainder);
-                sum1 += 2 * remainder;
-                k = 0;
-            }
-            else
-            {
-                sum2 += remainder;
-                k = 1;
-            }
+            
         }
 
     }
