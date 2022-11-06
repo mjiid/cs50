@@ -26,10 +26,9 @@ int main(void)
             {
                 while (remainder > 0)
                 {
-                    sum1 = 2*(remainder % 10);
+                    sum1 += 2*(remainder % 10);
                     remainder = remainder / 10;
                 }
-                
             }
             else
             {
