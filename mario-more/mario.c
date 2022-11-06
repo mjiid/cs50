@@ -19,8 +19,10 @@ int main(void)
             if ((j < n && j >= n - i - 1) || (j >= n + 2 && j <= n + 2 + i))
             {
                 printf("#");
+                // calculate the number of hashes in a line.
                 num++;
             }
+            //break out of the loop when there are 2*(i+1) hashes in a line.
             else if (num == 2*(i+1))
             {
                 break;
