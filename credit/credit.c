@@ -7,7 +7,7 @@ int main(void)
 {
     long card_num = get_long("Enter your credit card number :");
     int digit = digits(card_num);
-    if (digits != 13 || digits != 15 || digits != 16)
+    if (digit != 13 && digit != 15 && digit != 16)
     {
         printf("INVALID\n");
         return -1;
@@ -15,18 +15,23 @@ int main(void)
     else
     {
         long card_cpy = card_num;
-        int sum1 = 0;
-        int remainder = 0;
-        int k = 0;
+        printf("%li\n",card_cpy);
+        int  k = 0;
         while (card_cpy > 0)
         {
-            if(k)
+            int remainder = 0;
+            if (k)
             {
-                remainder = card_cpy%100;
+                remainder = card_cpy % 10;
+                card_cpy = card_cpy / 10;
+                k = 0;
             }
-
-            card_cpy = card_cpy/100;
-
+            else
+            {
+                card_cpy = card_cpy / 10;
+                k = 1;
+            }
+            printf("%d\n",remainder);
         }
     }
 
