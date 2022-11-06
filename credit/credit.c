@@ -21,7 +21,7 @@ int main(void)
         int first = first_dig(card_num);
         int two = two_digs(card_num);
         long card_cpy = card_num;
-        int remainder = 0,rem = 0;
+        int remainder = 0, rem = 0;
         int  k = 0, sum1 = 0, sum2 = 0, total = 0;
 
         //validating the card by Luhn's algorithm:
@@ -45,12 +45,12 @@ int main(void)
             else
             {
                 sum2 += remainder;
-                k=1;
+                k = 1;
             }
         }
         total = sum1 + sum2;
         // validate the card :
-        if ( (total % 10) != 0 )
+        if ((total % 10) != 0)
         {
             printf("INVALID\n");
             return 0;
@@ -65,7 +65,7 @@ int main(void)
             printf("AMEX\n");
             return 0;
         }
-        else if (two == 51 ||two == 52 ||two == 53 ||two == 54 ||two == 55 )
+        else if (two == 51 || two == 52 || two == 53 || two == 54 || two == 55)
         {
             printf("MASTERCARD\n");
             return 0;
@@ -91,7 +91,7 @@ int digits(long num)
     int dig = 0;
     while (num > 0)
     {
-        num = num /10;
+        num = num / 10;
         dig++;
     }
     return dig;
