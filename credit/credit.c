@@ -24,8 +24,12 @@ int main(void)
             card_cpy = card_cpy / 10;
             if (k)
             {
-                sum1 += 2 * remainder;
-                k = 0;
+                while (remainder > 0)
+                {
+                    
+                    remainder = remainder / 10;
+
+                }
             }
             else
             {
