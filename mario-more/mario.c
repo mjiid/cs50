@@ -12,11 +12,17 @@ int main(void)
 
     for (int i = 0; i < n; i++)
     {
+        int num = 0;
         for (int j = 0; j < 2*n+2; j++)
         {
             if ( (j < n && j >= n-i-1) || (j >= n + 2 && j <= n+2+i))
             {
                 printf("#");
+                num++;
+            }
+            else if(num == 2*i)
+            {
+                break;
             }
             else
             {
