@@ -20,7 +20,7 @@ int main(void)
                 printf("#");
                 num++;
             }
-            else if(num == 2*i)
+            else if(num == 2*(i+1))
             {
                 break;
             }
