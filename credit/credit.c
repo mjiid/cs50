@@ -16,28 +16,17 @@ int main(void)
     {
         long card_cpy = card_num;
         printf("%li\n",card_cpy);
-        int  k = 0;
+        int  k = 0, sum1;
         while (card_cpy > 0)
         {
-            int remainder = 0;
-            if (k)
-            {
-                remainder = card_cpy % 10;
-                card_cpy = card_cpy / 10;
-                k = 0;
-            }
-            else
-            {
-                card_cpy = card_cpy / 10;
-                k = 1;
-            }
+            int remainder = card_cpy % 10;
+            card_cpy = card_cpy / 100;
+            
             printf("%d\n",remainder);
         }
     }
 
 }
-
-
 
 // calculate the number of digits in a given number.
 int digits(long num)
