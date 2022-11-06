@@ -4,23 +4,24 @@
 int main(void)
 {
     int n = 0;
+    // getting the size of the bricks:
     do
     {
         n = get_int("Enter the number of bricks : ");
     }
-    while(n <= 0 || n > 8);
-
+    while (n <= 0 || n > 8);
+    // making the bricks:
     for (int i = 0; i < n; i++)
     {
         int num = 0;
-        for (int j = 0; j < 2*n+2; j++)
+        for (int j = 0; j < 2 * n + 2; j++)
         {
-            if ( (j < n && j >= n-i-1) || (j >= n + 2 && j <= n+2+i))
+            if ((j < n && j >= n - i - 1) || (j >= n + 2 && j <= n + 2 + i))
             {
                 printf("#");
                 num++;
             }
-            else if(num == 2*(i+1))
+            else if (num == 2*(i+1))
             {
                 break;
             }
