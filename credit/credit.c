@@ -16,14 +16,26 @@ int main(void)
     {
         long card_cpy = card_num;
         printf("%li\n",card_cpy);
-        int  k = 0, sum1;
+        int  k = 0, sum1 = 0, sum2 = 0;;
         while (card_cpy > 0)
         {
             int remainder = card_cpy % 10;
             card_cpy = card_cpy / 100;
-            
+            if (k)
+            {
+                sum1 += 2 * remainder;
+                k = 1;
+            }
+            else
+            {
+                sum2 += remainder;
+                k = 0;
+            }
             printf("%d\n",remainder);
         }
+        printf("%d\n",sum1);
+        printf("%d\n",sum2);
+
     }
 
 }
