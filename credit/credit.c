@@ -16,12 +16,16 @@ int main(void)
     {
         long card_cpy = card_num;
         int sum1 = 0;
+        int remainder = 0;
         int k = 0;
         while (card_cpy > 0)
         {
-            int remainder = card_cpy%100;
-            card_cpy = card_cpy/100;
+            if(k)
+            {
+                remainder = card_cpy%100;
+            }
 
+            card_cpy = card_cpy/100;
 
         }
     }
