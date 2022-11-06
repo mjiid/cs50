@@ -14,7 +14,7 @@ int main(void)
     {
         for (int j = 0; j < 2*n+2; j++)
         {
-            if ( (j <= n && j > n-i-1) || (j >= n + 2 && j < n+2+i))
+            if ( (j <= n && j > n-i-1) || (j >= n + 2 && j < n+3+i))
             {
                 printf("#");
             }
