@@ -12,6 +12,7 @@ int main(void)
     int letters = count_letters(text);
     int words = count_words(text);
     printf("%d\n",letters);
+    printf("%d\n",words);
 
 }
 
