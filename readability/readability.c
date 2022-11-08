@@ -46,7 +46,7 @@ int count_words(string text)
         }
         else if (text[i] == ' ' && space == 0)
         {
-            
+            space = 1;
         }
         else
         {
