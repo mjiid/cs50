@@ -51,5 +51,9 @@ int count_words(string text)
                 space = 0;
             }
         }
+        else
+        {
+            space = 0;
+        }
     }
 }
