@@ -4,6 +4,7 @@
 #include <string.h>
 
 int count_letters(string text);
+int count_words(string text);
 
 int main(void)
 {
@@ -15,8 +16,11 @@ int main(void)
 
 
 
+
+
 int count_letters(string text)
 {
+    //computes the number of letters in a string:
     int num = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
@@ -26,4 +30,20 @@ int count_letters(string text)
         }
     }
     return num;
+}
+
+int count_words(string text)
+{
+    int num = 0;
+    for (int i = 0, n = strlen(text); i < n; i++)
+    {
+        int space = 0;
+        if (text[i] == ' ' && space == 0)
+        {
+            num++;
+            space = 1;
+        }
+
+    }
+
 }
