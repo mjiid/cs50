@@ -41,19 +41,8 @@ int count_words(string text)
     {
         if (text[i] == ' ')
         {
-            if (space == 0)
-            {
-                num++;
-                space = 1;
-            }
-            else
-            {
-                space = 0;
-            }
-        }
-        else
-        {
-            space = 0;
+            num++;
+            space = 1;
         }
     }
 }
