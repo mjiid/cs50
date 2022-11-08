@@ -36,13 +36,14 @@ int count_words(string text)
 {
     // computes the number of words in a sentence:
     int num = 0;
-    int space = 0;
+    int space = 1;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if (text[i] == ' ')
+        if (text[i] == ' ' && space)
         {
             num++;
-            space = 1;
+            space = 0;
         }
+        
     }
 }
