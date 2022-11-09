@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble sort
 
-How do you know?: TODO
+How do you know?: it's sorts the random file in the same time as sort3, but much faster when given a sorted file.
 
-sort2 uses: TODO
+sort2 uses: Merge sort
 
-How do you know?: TODO
+How do you know?: it's significantly faster than the other two algorithms in case of a random text file.
 
-sort3 uses: TODO
+sort3 uses: Selection sort
 
-How do you know?: TODO
+How do you know?: it's sorts the random file in the same time as sort1, but much slower when given an already sorted file.
