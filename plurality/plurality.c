@@ -83,7 +83,8 @@ void print_winner(void)
 {
     // TODO
     candidate winner = candidates[0];
-    //find the winner ()
+    
+    //find the winner with the highest number of votes:
     for (int i = 0; i < candidate_count; i++)
     {
         if (winner.votes < candidates[i].votes)
@@ -92,6 +93,7 @@ void print_winner(void)
         }
     }
 
+    //find candidates with the same number of votes and print out their names:
     for (int i = 0; i < candidate_count; i++)
     {
         if (winner.votes == candidates[i].votes)
