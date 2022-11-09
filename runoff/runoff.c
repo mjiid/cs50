@@ -130,7 +130,7 @@ bool vote(int voter, int rank, string name)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (name = candidates[i].name)
+        if (name == candidates[i].name)
         {
             preferences[voter - 1][rank - 1] = i;
             return true;
@@ -160,7 +160,7 @@ bool print_winner(void)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidate[i].votes >= votes_count / 2)
+        if (candidates[i].votes >= voter_count / 2)
         {
             printf("%s\n",candidates[i].name);
             return true;
