@@ -128,7 +128,7 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    for (int i = 0, i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (name = candidates[i].name)
         {
@@ -188,13 +188,26 @@ int find_min(void)
 bool is_tie(int min)
 {
     // TODO
-    
-    return false;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes != min)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == min)
+        {
+            candidates[i].eliminated = true;
+        }
+    }
     return;
 }
