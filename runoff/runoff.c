@@ -132,7 +132,8 @@ bool vote(int voter, int rank, string name)
     {
         if (name = candidates[i].name)
         {
-            preferences[voter - 1][rank] = i;
+            preferences[voter - 1][rank - 1] = i;
+            return true;
         }
     }
     return false;
@@ -142,6 +143,7 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // TODO
+    
     return;
 }
 
