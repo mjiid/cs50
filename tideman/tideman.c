@@ -188,10 +188,7 @@ void lock_pairs(void)
     int start_node_loser = pairs[0].loser;
     for (int i = 0; i < pair_count; i++)
     {
-        if (pairs[i].winner == start_node_loser && pairs[i - 1].loser == start_node_winner)
-        {
-            continue;
-        }
+        if ()
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
