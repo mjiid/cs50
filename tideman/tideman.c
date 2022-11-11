@@ -184,7 +184,10 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    for (int i = 0; i < pair_cou)
+    for (int i = 0; i < pair_count; i++)
+    {
+        
+    }
     return;
 }
 
