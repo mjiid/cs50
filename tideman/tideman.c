@@ -186,7 +186,8 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        
+        // you need to detect a cycle.
+        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
 }
