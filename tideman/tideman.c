@@ -184,12 +184,9 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    string first_candidate = candidates[pairs[0].winner];
     for (int i = 0; i < pair_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++ )
-        {
-            
-        }
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
