@@ -191,10 +191,7 @@ void lock_pairs(void)
         {
             continue;
         }
-        else
-        {
-            locked[pairs[i].winner][pairs[i].loser] = true;
-        }
+        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
 }
