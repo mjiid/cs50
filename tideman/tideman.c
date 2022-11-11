@@ -184,11 +184,17 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    
+    int start_node = pairs[0].winner;
     for (int i = 0; i < pair_count; i++)
     {
-        
-        locked[pairs[i].winner][pairs[i].loser] = true;
+        if (pairs[i].loser == start_node)
+        {
+            continue;
+        }
+        else
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
     }
     return;
 }
@@ -197,5 +203,6 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+
     return;
 }
