@@ -184,8 +184,6 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    int start_node_winner = pairs[0].winner;
-    int start_node_loser = pairs[0].loser;
     for (int i = 0; i < pair_count; i++)
     {
         if ()
