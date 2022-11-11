@@ -187,6 +187,7 @@ void lock_pairs(void)
     string first_candidate = candidates[pairs[0].winner];
     for (int i = 0; i < pair_count; i++)
     {
+        if (strcmp())
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
