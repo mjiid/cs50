@@ -160,6 +160,8 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    int victory = 0;
+    
     return;
 }
 
