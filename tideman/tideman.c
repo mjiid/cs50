@@ -161,7 +161,11 @@ void sort_pairs(void)
 {
     // TODO
     int victory = 0;
-    
+    for (int i = 0; i < pairs_count; i++)
+    {
+        victory = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
+        
+    }
     return;
 }
 
