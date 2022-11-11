@@ -184,15 +184,13 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    int visited[3] = {0, 0, 0};
     for (int i = 0; i < pair_count; i++)
     {
-        if (visited[pairs[i].winner])
+        if (locked[pairs[i].winner][pairs[i].loser])
         {
             continue;
         }
         locked[pairs[i].winner][pairs[i].loser] = true;
-        visited[pairs[i].winner] = 1;
     }
     return;
 }
