@@ -187,7 +187,10 @@ void lock_pairs(void)
     string current_pos = candidates[0];
     for (int i = 0; i < pair_count; i++)
     {
-        if (strcmp())
+        if (!strcmp(current_pos, pairs[i].loser))
+        {
+            continue;
+        }
         locked[pairs[i].winner][pairs[i].loser] = true;
         strcpy(current_pos,candidates[pairs[i].loser]);
     }
