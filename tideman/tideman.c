@@ -187,9 +187,12 @@ void lock_pairs(void)
     int visited[3] = {0, 0, 0};
     for (int i = 0; i < pair_count; i++)
     {
-        
-
+        if (visited[pairs[i].winner])
+        {
+            continue;
+        }
         locked[pairs[i].winner][pairs[i].loser] = true;
+        visited[pairs[i].winner] = 1;
     }
     return;
 }
