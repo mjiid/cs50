@@ -189,6 +189,7 @@ void lock_pairs(void)
     {
         
         locked[pairs[i].winner][pairs[i].loser] = true;
+        strcpy(current_pos,candidates[pairs[i].loser]);
     }
     return;
 }
