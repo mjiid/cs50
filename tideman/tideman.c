@@ -227,7 +227,7 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
+    // the winner is the candidate that never loses.
      for (int col = 0; col < MAX; col++)
     {
         bool found_source = true;
