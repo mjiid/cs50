@@ -194,13 +194,11 @@ void lock_pairs(void)
                 k = 0;
                 break;
             }
-
         }
         if (k)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
-
 
     }
     return;
