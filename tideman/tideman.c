@@ -183,27 +183,30 @@ void sort_pairs(void)
 
 
 // a function that detects if there is a cycle or not:
-bool has_cycle(int end, int cycle_start)
+bool has_cycle(int winner, int loser)
 {
-    // Return true if there is a cycle created (Recursion base case)
-    if (end == cycle_start)
+    while (winner != -1 && winner != loser)
+    {
+        bool found = false;
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[i][winner])
+            {
+                found = true;
+                winner = i;
+            }
+        }
+        if (!found)
+        {
+            winner = -1;
+        }
+    }
+    if (winner == loser)
     {
         return true;
     }
-    // Loop through candidates (Recursive case)
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (locked[end][i])
-        {
-            if (has_cycle(i, cycle_start))
-            {
-                return true;
-            }
-        }
-    }
     return false;
 }
-
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
