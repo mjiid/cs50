@@ -228,19 +228,21 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
-    string winner;
-    for (int i = 0; i < candidate_count; i++)
+     for (int col = 0; col < MAX; col++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        bool found_source = true;
+        for (int row = 0; row < MAX; row++)
         {
-            if (locked[i][j])
+            if (locked[row][col] == true)
             {
+                found_source = false;
                 break;
             }
-            else if (j == candidate_count - 1)
-            {
-                printf("%s\n", candidates[j]);
-            }
+        }
+        if (found_source)
+        {
+            printf("%s\n", candidates[col]);
+            return;
         }
     }
     return;
