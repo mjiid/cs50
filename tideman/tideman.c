@@ -185,18 +185,27 @@ void sort_pairs(void)
 // a function that detects if there is a cycle or not:
 bool has_cycle(int winner, int loser)
 {
-    if (locked[loser][winner] == true)
+    while (winner != -1 && winner != loser)
+    {
+        bool found = false;
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[i][winner])
+            {
+                found = true;
+                winner = i;
+            }
+        }
+        if (!found)
+        {
+            winner = -1;
+        }
+    }
+    if (winner == loser)
     {
         return true;
     }
-    for (int j = 0; j < candidate_count; j++)
-    {
-        if (locked[loser][j] == true && has_cycle(winner, j))
-        {
-            return true;
-        }
-    }
-    return true;
+    return false;
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
