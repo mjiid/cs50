@@ -180,26 +180,22 @@ void sort_pairs(void)
     return;
 }
 
+
+// a function that detects if there is a cycle or not:
+bool 
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        int k = 1;
-        for (int j = 0; j < candidate_count; j++)
+        int winner = pairs[i].winner;
+        int loser = pairs[i].loser;
+        if (!has_cycle(winner,loser))
         {
-            if (locked[pairs[i].loser][j])
-            {
-                k = 0;
-                break;
-            }
+            locked[winner][loser] = true;
         }
-        if (k)
-        {
-            locked[pairs[i].winner][pairs[i].loser] = true;
-        }
-
     }
     return;
 }
