@@ -33,6 +33,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool has_cycle(int winner, int loser);
 
 int main(int argc, string argv[])
 {
