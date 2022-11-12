@@ -222,19 +222,17 @@ void print_winner(void)
     string winner;
     for (int i = 0; i < candidate_count; i++)
     {
-        int count = 0;
         for (int j = 0; j < candidate_count; j++)
         {
             if (locked[i][j])
             {
-                count++;
+                break;
+            }
+            else if (j == candidate_count - 1)
+            {
+                printf("%s\n", candidates[j]);
             }
         }
-        if (count >= candidate_count - 1)
-        {
-            winner = candidates[i];
-        }
     }
-    printf("%s\n", winner);
     return;
 }
