@@ -39,18 +39,16 @@ int main(int argc, char *argv[])
     fread(header, 1, HEADER_SIZE, input);
     fwrite(header, 1, HEADER_SIZE, output);
     // TODO: Read samples from input file and write updated data to output file
-    fseek(input, 0L, SEEK_END);
-    int sz = ftell(input);
     while (1)
     {
         int16_t sample;
-        fread(&sample, 2, sz, input);
+        fread(&sample, 2, 1, input);
         sample = sample * factor;
         if (feof(input))
         {
             break;
         }
-        fwrite(&sample, 2, sz, output);
+        fwrite(&sample, 2, 1, output);
 
     }
     // Close files
