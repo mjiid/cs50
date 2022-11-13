@@ -44,12 +44,13 @@ int main(int argc, char *argv[])
     while (1)
     {
         int16_t sample;
-        fread(sample, 2, sz, input);
+        fread(&sample, 2, sz, input);
+        sample = sample * factor;
         if (feof(input))
         {
             break;
         }
-        fwrite(sample, 2, sz, output);
+        fwrite(&sample, 2, sz, output);
 
     }
     // Close files
