@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     while (1)
     {
         int16_t sample;
-        fread(sample,2,)
+        fread(sample,2,sizeof(input))
         if (feof(input))
         {
             break;
