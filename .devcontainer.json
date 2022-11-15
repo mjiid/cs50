@@ -16,7 +16,11 @@
     "vscjava.vscode-java-debug",
     "vsls-contrib.gitdoc"
   ],
-  "image": "ghcr.io/cs50/codespace:95ac94523633c45153eb5ace678d07deeded1236",
+  "forwardPorts": [
+    5000,
+    8080
+  ],
+  "image": "ghcr.io/cs50/codespace:0e22b9d17edca315d2d30abcaa828df98f7721eb",
   "postCreateCommand": "/opt/cs50/bin/postCreateCommand",
   "settings": {
     "C_Cpp.autocomplete": "Disabled",
