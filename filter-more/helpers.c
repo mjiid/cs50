@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <math.h>
+#include <stdio.h>
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -42,40 +43,50 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // create a duplicate of the image
+    RGBTRIPLE temp[width][height];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            RGBTRIPLE newval;
-            newval.rgbtBlue = 0;
-            newval.rgbtRed = 0;
-            newval.rgbtGreen = 0;
-            int count = 1.0;
+            temp[i][j] = image[i][j];
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            float sum_blue = 0;
+            float sum_red = 0;
+            float sum_green = 0;
+            int counter = 0;
+
             for (int k = i - 1; k <= i + 1; k++)
             {
-                if (k < 0 || k > height)
+                if (k < 0 || k >= height)
                 {
                     continue;
                 }
-
                 for (int l = j - 1; l <= j + 1; l++)
                 {
-                    if (l < 0 || l > width || (k == i && l == j))
+                    if (l < 0 || l >= width)
                     {
                         continue;
                     }
-
-                    newval.rgbtBlue += image[k][l].rgbtBlue;
-                    newval.rgbtRed += image[k][l].rgbtRed;
-                    newval.rgbtGreen += image[k][l].rgbtGreen;
-                    count++;
+                    
+                    sum_blue += temp[k][l].rgbtBlue;
+                    sum_red += temp[k][l].rgbtRed;
+                    sum_green += temp[k][l].rgbtGreen;
+                    counter++;
                 }
             }
-            image[i][j].rgbtBlue = round(newval.rgbtBlue / count);
-            image[i][j].rgbtGreen = round(newval.rgbtGreen / count);
-            image[i][j].rgbtRed = round(newval.rgbtRed / count);
+            image[i][j].rgbtBlue = round(sum_blue / counter);
+            image[i][j].rgbtRed = round(sum_red / counter);
+            image[i][j].rgbtGreen = round(sum_green / counter);
         }
     }
+
     return;
 }
 
