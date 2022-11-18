@@ -111,59 +111,64 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     for (int i = 0; i < height; i++)
     {
+        // Loop through columns
         for (int j = 0; j < width; j++)
         {
-            int sum_gx_red = 0, sum_gy_red = 0;
-            int sum_gx_blue = 0, sum_gy_blue = 0;
-            int sum_gx_green = 0, sum_gy_green = 0;
-
-            for (int k = i - 1;  k < i + 2; k++)
+            // Initialise ints
+            float Gx_red;
+            float Gx_blue;
+            float Gx_green;
+            float Gy_red;
+            float Gy_blue;
+            float Gy_green;
+            Gx_red = Gx_blue = Gx_green = Gy_red = Gy_blue = Gy_green = 0;
+            // For each pixel, loop vertical and horizontal
+            for (int k = -1; k < 2; k++)
             {
-                if (k < 0 || k >= height)
+                for (int l = -1; l < 2; l++)
                 {
-                    continue;
-                }
-                for (int l = j - 1; l < j + 2; l++)
-                {
-                    if (l < 0 || l >= width)
+                    // Check if pixel is outside rows
+                    if (i + k < 0 || i + k >= height)
                     {
                         continue;
                     }
-                    sum_gx_red += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
-                    sum_gx_blue += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
-                    sum_gx_green += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
-
-                    sum_gy_red += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
-                    sum_gy_blue += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
-                    sum_gy_green += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
+                    // Check if pixel is outside columns
+                    if (j + l < 0 || j + l >= width)
+                    {
+                        continue;
+                    }
+                    // Otherwise add to sums
+                    Gx_red += temp[i + k][j + l].rgbtRed * Gx[k + 1][l + 1];
+                    Gx_green += temp[i + k][j + l].rgbtGreen * Gx[k + 1][l + 1];
+                    Gx_blue += temp[i + k][j + l].rgbtBlue * Gx[k + 1][l + 1];
+                    Gy_red += temp[i + k][j + l].rgbtRed * Gy[k + 1][l + 1];
+                    Gy_green += temp[i + k][j + l].rgbtGreen * Gy[k + 1][l + 1];
+                    Gy_blue += temp[i + k][j + l].rgbtBlue * Gy[k + 1][l + 1];
                 }
             }
-
-            int final_red = round(sqrt((sum_gx_red * sum_gx_red) + (sum_gy_red * sum_gy_red)));
-            int final_blue = round(sqrt((sum_gx_blue * sum_gx_blue) + (sum_gy_blue * sum_gy_blue)));
-            int final_green = round(sqrt((sum_gx_green * sum_gx_green) + (sum_gy_green * sum_gy_green)));
-
-            if (final_red > 255)
+            // Calculate Sobel operator
+            int red = round(sqrt(Gx_red * Gx_red + Gy_red * Gy_red));
+            int green = round(sqrt(Gx_green * Gx_green + Gy_green * Gy_green));
+            int blue = round(sqrt(Gx_blue * Gx_blue + Gy_blue * Gy_blue));
+            // Cap at 255
+            if (red > 255)
             {
-                final_red = 255;
+                red = 255;
             }
-            if (final_blue > 255)
+            if (green > 255)
             {
-                final_blue = 255;
+                green = 255;
             }
-            if (final_green > 255)
+            if (blue > 255)
             {
-                final_green = 255;
+                blue = 255;
             }
-
-            image[i][j].rgbtRed = final_red;
-            image[i][j].rgbtBlue = final_blue;
-            image[i][j].rgbtGreen = final_green;
-
-
+            // Assign new values to pixels
+            image[i][j].rgbtRed = red;
+            image[i][j].rgbtGreen = green;
+            image[i][j].rgbtBlue = blue;
         }
     }
-
 
     return;
 }
