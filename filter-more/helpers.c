@@ -123,7 +123,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 if (k < 0 || k >= height)
                 {
-                        continue;
+                    continue;
                 }
                 for (int l = j - 1; l <= j + 1; l++)
                 {
@@ -152,9 +152,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtGreen = (final_green > 255) ? 255 : final_green;
         }
     }
-
-
-
 
     return;
 }
