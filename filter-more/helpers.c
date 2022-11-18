@@ -145,28 +145,20 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             if (final_red > 255)
             {
-                image[i][j].rgbtRed = 255;
-            }
-            else
-            {
-                image[i][j].rgbtRed = final_red;
+                final_red = 255;
             }
             if (final_blue > 255)
             {
-                image[i][j].rgbtBlue = 255;
-            }
-            else
-            {
-                image[i][j].rgbtBlue = final_blue;
+                final_blue = 255;
             }
             if (final_green > 255)
             {
-                image[i][j].rgbtGreen = 255;
+                final_green = 255;
             }
-            else
-            {
-                image[i][j].rgbtGreen = final_green;
-            }
+
+            image[i][j].rgbtRed = final_red;
+            image[i][j].rgbtBlue = final_blue;
+            image[i][j].rgbtGreen = final_green;
 
 
         }
