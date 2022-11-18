@@ -139,9 +139,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
 
-            int final_red = round((sum_gx_red * sum_gx_red) + (sum_gy_red * sum_gy_red));
-            int final_blue = round((sum_gx_blue * sum_gx_blue) + (sum_gy_blue * sum_gy_blue));
-            int final_green = round((sum_gx_green * sum_gx_green) + (sum_gy_green * sum_gy_green));
+            int final_red = round(sqrt((sum_gx_red * sum_gx_red) + (sum_gy_red * sum_gy_red)));
+            int final_blue = round(sqrt((sum_gx_blue * sum_gx_blue) + (sum_gy_blue * sum_gy_blue)));
+            int final_green = round(sqrt((sum_gx_green * sum_gx_green) + (sum_gy_green * sum_gy_green)));
 
             image[i][j].rgbtRed = final_red;
             image[i][j].rgbtBlue = final_blue;
