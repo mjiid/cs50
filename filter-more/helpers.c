@@ -113,7 +113,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < height; j++)
         {
-            float 
+            float gx_red = 0, gy_red = 0;
+            float gx_blue = 0, gy_blue = 0;
+            float gx_green = 0, gy_green = 0;
+
+            
+
+
         }
     }
 
