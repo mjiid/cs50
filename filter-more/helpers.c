@@ -129,19 +129,19 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     {
                         continue;
                     }
-                    sum_gx_red += Gx[k][l] * temp[k][l].rgbtRed;
-                    sum_gx_blue += Gx[k][l] * temp[k][l].rgbtBlue;
-                    sum_gx_green += Gx[k][l] * temp[k][l].rgbtGreen;
+                    sum_gx_red += Gx[k][l] * (temp[k][l].rgbtRed);
+                    sum_gx_blue += Gx[k][l] * (temp[k][l].rgbtBlue);
+                    sum_gx_green += Gx[k][l] * (temp[k][l].rgbtGreen);
 
-                    sum_gy_red += Gy[k][l] * temp[k][l].rgbtRed;
-                    sum_gy_blue += Gy[k][l] * temp[k][l].rgbtBlue;
-                    sum_gy_green += Gy[k][l] * temp[k][l].rgbtGreen;
+                    sum_gy_red += Gy[k][l] * (temp[k][l].rgbtRed);
+                    sum_gy_blue += Gy[k][l] * (temp[k][l].rgbtBlue);
+                    sum_gy_green += Gy[k][l] * (temp[k][l].rgbtGreen);
                 }
             }
 
-            int final_red = sum_gx_red * sum_gx_red + sum_gy_red * sum_gy_red;
-            int final_blue = sum_gx_blue * sum_gx_blue + sum_gy_blue * sum_gy_blue;
-            int final_green = sum_gx_green * sum_gx_green + sum_gy_green * sum_gy_green;
+            int final_red = (sum_gx_red * sum_gx_red) + (sum_gy_red * sum_gy_red);
+            int final_blue = (sum_gx_blue * sum_gx_blue) + (sum_gy_blue * sum_gy_blue);
+            int final_green = (sum_gx_green * sum_gx_green) + (sum_gy_green * sum_gy_green);
 
             if (final_red > 255)
             {
