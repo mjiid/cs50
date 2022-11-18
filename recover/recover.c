@@ -3,8 +3,12 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *f = fopen(card.raw, "r");
+    if (argc != 2)
+    {
+        printf("The program needs exactly one command-line \n");
+        return 1;
+    }
 
-    
+
 
 }
