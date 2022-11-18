@@ -41,7 +41,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 }
 
 
-    // Blur image
+// Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     // Create temp array
@@ -53,10 +53,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             temp[i][j] = image[i][j];
         }
     }
-        // Loop through rows
+    // Loop through rows
     for (int i = 0; i < height; i++)
     {
-        // Loop through columns
+    // Loop through columns
         for (int j = 0; j < width; j++)
         {
             // Initialise values
