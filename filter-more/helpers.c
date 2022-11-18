@@ -129,13 +129,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     {
                         continue;
                     }
-                    sum_gx_red += Gx[k][l] * (temp[k][l].rgbtRed);
-                    sum_gx_blue += Gx[k][l] * (temp[k][l].rgbtBlue);
-                    sum_gx_green += Gx[k][l] * (temp[k][l].rgbtGreen);
+                    sum_gx_red += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
+                    sum_gx_blue += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
+                    sum_gx_green += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
 
-                    sum_gy_red += Gy[k][l] * (temp[k][l].rgbtRed);
-                    sum_gy_blue += Gy[k][l] * (temp[k][l].rgbtBlue);
-                    sum_gy_green += Gy[k][l] * (temp[k][l].rgbtGreen);
+                    sum_gy_red += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
+                    sum_gy_blue += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
+                    sum_gy_green += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
                 }
             }
 
