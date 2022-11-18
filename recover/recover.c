@@ -3,6 +3,6 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *f = fopen(filename, "r");
+    FILE *f = fopen(card.raw, "r");
 
 }
