@@ -96,74 +96,62 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-    int Gy[3][3] = {{-1, -2, 1}, {0, 0, 0}, {1, 2, 1}};
+        RGBTRIPLE temp[height][width];
 
-    RGBTRIPLE temp[height][width];
-
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            temp[i][j] = image[i][j];
-        }
-    }
+    int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            int sum_gx_red = 0, sum_gy_red = 0;
-            int sum_gx_blue = 0, sum_gy_blue = 0;
-            int sum_gx_green = 0, sum_gy_green = 0;
+            int gxBlue = 0;
+            int gyBlue = 0;
+            int gxGreen = 0;
+            int gyGreen = 0;
+            int gxRed = 0;
+            int gyRed = 0;
 
-            for (int k = i - 1;  k < i + 2; k++)
+            for (int r = -1; r < 2; r++)
             {
-                if (k < 0 || k >= height)
+                for (int c = -1; c < 2; c++)
                 {
-                    continue;
-                }
-                for (int l = j - 1; l < j + 2; l++)
-                {
-                    if (l < 0 || l >= width)
+                    if (i + r < 0 || i + r > height - 1)
                     {
                         continue;
                     }
-                    sum_gx_red += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
-                    sum_gx_blue += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
-                    sum_gx_green += Gx[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
+                    if (j + c < 0 || j + c > width - 1)
+                    {
+                        continue;
+                    }
 
-                    sum_gy_red += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtRed);
-                    sum_gy_blue += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtBlue);
-                    sum_gy_green += Gy[k - i + 1][l - j + 1] * (temp[k][l].rgbtGreen);
+                    gxBlue += image[i + r][j + c].rgbtBlue * gx[r + 1][c + 1];
+                    gyBlue += image[i + r][j + c].rgbtBlue * gy[r + 1][c + 1];
+                    gxGreen += image[i + r][j + c].rgbtGreen * gx[r + 1][c + 1];
+                    gyGreen += image[i + r][j + c].rgbtGreen * gy[r + 1][c + 1];
+                    gxRed += image[i + r][j + c].rgbtRed * gx[r + 1][c + 1];
+                    gyRed += image[i + r][j + c].rgbtRed * gy[r + 1][c + 1];
                 }
             }
 
-            int final_red = round(sqrt((sum_gx_red * sum_gx_red) + (sum_gy_red * sum_gy_red)));
-            int final_blue = round(sqrt((sum_gx_blue * sum_gx_blue) + (sum_gy_blue * sum_gy_blue)));
-            int final_green = round(sqrt((sum_gx_green * sum_gx_green) + (sum_gy_green * sum_gy_green)));
+            int blue = round(sqrt(gxBlue * gxBlue + gyBlue * gyBlue));
+            int green = round(sqrt(gxGreen * gxGreen + gyGreen * gyGreen));
+            int red = round(sqrt(gxRed * gxRed + gyRed * gyRed));
 
-            if (final_red > 255)
-            {
-                final_red = 255;
-            }
-            if (final_blue > 255)
-            {
-                final_blue = 255;
-            }
-            if (final_green > 255)
-            {
-                final_green = 255;
-            }
-
-            image[i][j].rgbtRed = final_red;
-            image[i][j].rgbtBlue = final_blue;
-            image[i][j].rgbtGreen = final_green;
-
-
+            temp[i][j].rgbtBlue = (blue > 255) ? 255 : blue;
+            temp[i][j].rgbtGreen = (green > 255) ? 255 : green;
+            temp[i][j].rgbtRed = (red > 255) ? 255 : red;
         }
     }
 
-
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtBlue = temp[i][j].rgbtBlue;
+            image[i][j].rgbtGreen = temp[i][j].rgbtGreen;
+            image[i][j].rgbtRed = temp[i][j].rgbtRed;
+        }
+    }
     return;
 }
