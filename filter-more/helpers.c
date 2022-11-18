@@ -40,11 +40,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// Blur image
+
+    // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    // create a duplicate of the image
-    RGBTRIPLE temp[width][height];
+    // Create temp array
+    RGBTRIPLE temp[height][width];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -52,16 +53,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             temp[i][j] = image[i][j];
         }
     }
-
+        // Loop through rows
     for (int i = 0; i < height; i++)
     {
+        // Loop through columns
         for (int j = 0; j < width; j++)
         {
-            float sum_blue = 0;
+            // Initialise values
             float sum_red = 0;
+            float sum_blue = 0;
             float sum_green = 0;
             int counter = 0;
-
+            // For each pixel, loop vertical and horizontal
             for (int k = i - 1; k <= i + 1; k++)
             {
                 if (k < 0 || k >= height)
@@ -74,24 +77,26 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     {
                         continue;
                     }
-                    
-                    sum_blue += temp[k][l].rgbtBlue;
+                    // Otherwise add to sums
                     sum_red += temp[k][l].rgbtRed;
+                    sum_blue += temp[k][l].rgbtBlue;
                     sum_green += temp[k][l].rgbtGreen;
                     counter++;
                 }
             }
-            image[i][j].rgbtBlue = round(sum_blue / counter);
+            // Get average and blur image
             image[i][j].rgbtRed = round(sum_red / counter);
             image[i][j].rgbtGreen = round(sum_green / counter);
+            image[i][j].rgbtBlue = round(sum_blue / counter);
         }
     }
-
     return;
 }
 
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int Gy[3][3] = {{-1, -2, 1}, {0, 0, 0}, {1, 2, 1}};
     return;
 }
