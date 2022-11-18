@@ -98,8 +98,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE temp[height][width];
 
-    int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-    int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
     for (int i = 0; i < height; i++)
     {
@@ -145,8 +145,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int final_blue = round(sqrt(gx_blue * gx_blue + gy_blue * gy_blue));
             int final_green = round(sqrt(gx_green * gx_green + gy_green * gy_green));
 
-            image[i][j].rgbtRed = ()
-
+            image[i][j].rgbtRed = (final_red > 255) ? 255 : final_red;
+            image[i][j].rgbtBlue = (final_blue > 255) ? 255 : final_blue;
+            image[i][j].rgbtGreen = (final_green > 255) ? 255 : final_green;
         }
     }
 
