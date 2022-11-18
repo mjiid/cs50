@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        printf("The program needs exactly one command-line \n");
+        printf("Usage: ./recover IMAGE \n");
         return 1;
     }
 
