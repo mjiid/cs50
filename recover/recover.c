@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE \n");
         return 1;
     }
-
+    
 
 
 }
