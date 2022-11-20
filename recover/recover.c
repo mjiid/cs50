@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
                 sprintf(filename, "%03i.jpg", count);
                 img = fopen(filename, "w");
                 fwrite(buffer, BLOCK_SIZE, 1, img);
-                found = 0;
             }
             count++;
         }
