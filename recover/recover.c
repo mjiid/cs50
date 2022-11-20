@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
 
     BYTE buffer;
 
-    while (fopen (buffer, ))
+    while (fopen (buffer, 1, block_size, forensic_img) == block_size)
+    {
+        
+    }
 
 }
