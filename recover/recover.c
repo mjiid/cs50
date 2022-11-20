@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
             {
                 sprintf(filename, "%03i.jpg", count);
                 img = fopen(filename, "w");
-                fwrite(buffer, BLOCK_SIZE, 1, img);
+                fwrite(buffer, 1, BLOCK_SIZE, img);
                 found = 1;
             }
             else
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
                 fclose(img);
                 sprintf(filename, "%03i.jpg", count);
                 img = fopen(filename, "w");
-                fwrite(buffer, BLOCK_SIZE, 1, img);
+                fwrite(buffer, 1, BLOCK_SIZE, img);
                 found = 0;
             }
             count++;
@@ -54,12 +54,12 @@ int main(int argc, char *argv[])
         {
             if (found)
             {
-                fwrite(buffer, BLOCK_SIZE, 1, img);
+                fwrite(buffer, 1, BLOCK_SIZE, img);
             }
         }
 
     }
-    
+
     fclose(img);
     fclose(forensic_img);
 }
