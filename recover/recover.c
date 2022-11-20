@@ -8,7 +8,14 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE \n");
         return 1;
     }
-    
+
+    FILE *forensic_img = fopen(argv[1], "r");
+
+    if (forensic_img == NULL)
+    {
+        printf("The forensic image cannot be opened\n");
+        return 1;
+    }
 
 
 }
