@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    
+    BYTE buffer;
+
+    while (fopen (buffer, ))
 
 }
