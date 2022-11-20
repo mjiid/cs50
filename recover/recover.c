@@ -30,10 +30,31 @@ int main(int argc, char *argv[])
     FILE *img;
     while (fread(buffer, 1, BLOCK_SIZE, forensic_img) == BLOCK_SIZE)
     {
-        fread(buffer, 1, BLOCK_SIZE, forensic_img);
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            
+            if (!found)
+            {
+                sprintf(filename, "%03i.jpg", count);
+                img = fopen(filename, "w");
+                fwrite(buffer, 1, BLOCK_SIZE, img);
+                found = 1;
+            }
+            else
+            {
+                fclose(img);
+                sprintf(filename, "%03i.jpg", count);
+                img = fopen(filename, "w");
+                fwrite(buffer, 1, BLOCK_SIZE, img);
+                found = 0;
+            }
+            count++;
+        }
+        else
+        {
+            if (found)
+            {
+                fwrite(buffer, 1, BLOCK_SIZE, img);
+            }
         }
 
     }
