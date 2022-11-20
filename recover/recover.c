@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 1, 512, forensic_img) == 512)
     {
-        
+        if (strcmp(buffer[0],"0xff"))
     }
 
 }
