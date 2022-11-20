@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
     char filename[8];
     int count = 0;
     int found = 0;
-    FILE *img;
     while (fread(buffer, 1, BLOCK_SIZE, forensic_img) == BLOCK_SIZE)
     {
         fread(buffer, 1, BLOCK_SIZE, forensic_img);
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
+            FILE *img;
             if (!found)
             {
                 sprintf(filename, "%03i.jpg", count);
@@ -59,6 +59,5 @@ int main(int argc, char *argv[])
         }
 
     }
-    fclose(img);
     fclose(forensic_img);
 }
