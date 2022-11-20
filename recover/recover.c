@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    BYTE buffer;
+    
 
-    while (fopen(buffer, 1, 512, forensic_img) == 512)
+    while (fread(buffer, 1, 512, forensic_img) == 512)
     {
-        
+
     }
 
 }
