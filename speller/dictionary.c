@@ -38,7 +38,7 @@ bool load(const char *dictionary)
 {
     // TODO
     node *n = malloc(sizeof(node));
-    
+    FILE *dic = fopen("../dictionaries/large.txt", "r");
 
     return false;
 }
