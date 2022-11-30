@@ -29,7 +29,18 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    
+    unsigned int hash_value = hash(word);
+    while (true)
+    {
+        if (strcasecmp(table[hash_value]->word,word) == 0)
+        {
+            return true;
+        }
+        else
+        {
+            
+        }
+    }
     return false;
 }
 
