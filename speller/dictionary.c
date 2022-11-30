@@ -38,7 +38,11 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *dic = fopen("../dictionaries/small.txt", "r");
-    
+    fgets(word, LENGTH, dic);
+    node *n = malloc(sizeof(node));
+    strcpy(n->word, word);
+    unsigned int hash_value = hash(word);
+    table[hash_value] = 
 
     return false;
 }
