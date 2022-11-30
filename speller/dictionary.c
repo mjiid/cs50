@@ -34,6 +34,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     
+
 }
 
 // Loads dictionary into memory, returning true if successful, else false
