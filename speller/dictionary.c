@@ -37,7 +37,7 @@ bool check(const char *word)
         {
             return true;
         }
-        current = *next;
+        current = current->next;
     }
     return false;
 }
