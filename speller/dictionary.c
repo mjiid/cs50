@@ -42,7 +42,7 @@ bool load(const char *dictionary)
     node *n = malloc(sizeof(node));
     strcpy(n->word, word);
     unsigned int hash_value = hash(word);
-    table[hash_value] = 
+    table[hash_value] = n;
 
     return false;
 }
