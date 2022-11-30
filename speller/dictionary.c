@@ -37,13 +37,21 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+
     FILE *dic = fopen("../dictionaries/small.txt", "r");
-    fgets(word, LENGTH, dic);
+    if (dic == NULL)
+    {
+        return false;
+    }
+    fscanf(dic, "%s", word);
     node *n = malloc(sizeof(node));
+    if (n = NULL)
+    {
+        return false;
+    }
     strcpy(n->word, word);
     unsigned int hash_value = hash(word);
-    table[hash_value] = n;
-
+    
     return false;
 }
 
