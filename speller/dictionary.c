@@ -38,7 +38,7 @@ bool load(const char *dictionary)
 {
     // TODO
 
-    FILE *dic = fopen("../dictionaries/small.txt", "r");
+    FILE *dic = fopen("./dictionaries/small.txt", "r");
     if (dic == NULL)
     {
         return false;
@@ -51,7 +51,8 @@ bool load(const char *dictionary)
     }
     strcpy(n->word, word);
     unsigned int hash_value = hash(word);
-    
+    n->next = table[hash_value]->node;
+    table[hash_value] = n;
     return false;
 }
 
