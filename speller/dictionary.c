@@ -70,7 +70,7 @@ bool load(const char *dictionary)
         unsigned int hash_value = hash(word);
         n->next = table[hash_value]->next;
         table[hash_value] = n;
-        *counter++;
+        (*counter)++;
     }
     return true;
 }
