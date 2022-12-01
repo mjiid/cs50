@@ -59,18 +59,20 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    fscanf(dic, "%s", word);
-    node *n = malloc(sizeof(node));
-    if (n == NULL)
+    while (fscanf(dic, "%s", word) == 1)
     {
-        return false;
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return false;
+        }
+        strcpy(n->word, word);
+        unsigned int hash_value = hash(word);
+        n->next = table[hash_value]->next;
+        table[hash_value] = n;
+        *counter++;
+        return true;
     }
-    strcpy(n->word, word);
-    unsigned int hash_value = hash(word);
-    n->next = table[hash_value]->next;
-    table[hash_value] = n;
-    *counter++;
-    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
