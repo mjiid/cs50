@@ -92,7 +92,8 @@ bool unload(void)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        
+        node *cursor = table[i];
+
     }
     return false;
 }
