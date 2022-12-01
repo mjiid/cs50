@@ -81,7 +81,7 @@ unsigned int size(void)
     // TODO
     if (load(DICTIONARY))
     {
-        return counter;
+        return *counter;
     }
     return 0;
 }
