@@ -20,7 +20,7 @@ int *counter;
 *counter = 0;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 676;
+const unsigned int N = 100000;
 
 // Hash table
 node *table[N];
@@ -46,7 +46,13 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    return 26 * (toupper(word[0]) - 'A') + toupper(word[1] - 'A');
+    long sum = 0;
+
+    for (int i = 0; i < strlen(word); i++)
+    {
+        sum += tolower(word[i]);
+    }
+    return sum % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
