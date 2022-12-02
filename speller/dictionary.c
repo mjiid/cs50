@@ -53,13 +53,13 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    char word[LENGTH];
-    FILE *dic = fopen("./dictionaries/small.txt", "r");
+    char word[LENGTH + 1];
+    FILE *dic = fopen("dictionary", "r");
     if (dic == NULL)
     {
         return false;
     }
-    while (fscanf(dic, "%s", word) == 1)
+    while (fscanf(dic, "%s", word) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
