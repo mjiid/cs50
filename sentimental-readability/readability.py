@@ -15,8 +15,11 @@ def count_letters(text):
     for ch in text:
         if ch.isalpha():
             count += 1
+    return count
 
 def count_words(text):
-    count = 0
+    count = 1
     for ch in text:
-        if 
+        if ch == ' ':
+            count += 1
+    return count
