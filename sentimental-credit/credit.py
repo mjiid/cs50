@@ -2,6 +2,7 @@
 from cs50 import get_int, get_string
 import re
 
+
 def main():
     number = get_int("Number: ")
     num_list = re.findall('[0-9]', str(number))
@@ -36,10 +37,10 @@ def main():
         elif first == 4:
             print("VISA")
             return 0
-        elif (sec== 34 or sec == 37):
+        elif (sec == 34 or sec == 37):
             print("AMEX")
             return 0
-        elif (sec == 51 or sec == 52 or sec == 53 or sec == 54 or sec== 55):
+        elif (sec == 51 or sec == 52 or sec == 53 or sec == 54 or sec == 55):
             print("MASTERCARD")
             return 0
         else:
