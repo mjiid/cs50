@@ -8,8 +8,8 @@ def main():
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
-    L = (letters / words) * 100
-    S = (sentences / words) * 100
+    L = (float(letters) / words) * 100
+    S = (float(sentences) / words) * 100
     index = int(0.0588 * L - 0.296 * S - 15.8)
 
     if index < 1:
@@ -17,7 +17,7 @@ def main():
     elif index >= 16:
         print("Grade 16+")
     else:
-        print(f"Grade {index}", index)
+        print(f"Grade {index}")
     return 0
 
 
