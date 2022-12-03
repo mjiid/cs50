@@ -17,7 +17,7 @@ def main():
         remainder, rem = 0, 0
         k, sum1, sum2 = 0, 0, 0
 
-        while card_cpy > 0:
+        while (card_cpy > 0):
             remainder = card_cpy % 10
             card_cpy /= 10
             if k:
@@ -31,6 +31,7 @@ def main():
                 sum2 += remainder
                 k = 1
         total = sum1 + sum2
+        print(total)
         if (total % 10 != 0):
             print("INVALID")
             print("1")
