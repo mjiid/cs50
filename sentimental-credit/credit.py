@@ -12,7 +12,7 @@ def main():
         return 0
     else:
         first = int(num_list[0])
-        sec = num
+        sec = int(j)
         card_cpy = card_num
         remainder, rem = 0, 0
         k, sum1, sum2, total = 0, 0, 0, 0
