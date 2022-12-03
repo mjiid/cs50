@@ -19,7 +19,8 @@ def main():
     with open(sys.argv[1], "r") as file:
         rows = csv.DictReader(file)
         for row in rows:
-            row
+            row['rating'] = int(row['rating'])
+            teams.append(row)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
