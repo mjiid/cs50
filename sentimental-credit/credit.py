@@ -6,13 +6,15 @@ def main():
     number = get_int("Number: ")
     num_list = re.findall('[0-9]', str(number))
     digits = len(num_list)
-
-    if digits != 13 and digits != 15 and digits != 16:
+    print(digits)
+    if (digits != 13 and digits != 15 and digits != 16):
         print(INVALID)
         return 0
     else:
         first = int(num_list[0])
         sec = int(num_list[0] + num_list[1])
+        print(first)
+        print(sec)
         card_cpy = number
         remainder, rem = 0, 0
         k, sum1, sum2, total = 0, 0, 0, 0
@@ -31,16 +33,16 @@ def main():
                 sum2 += remainder
                 k = 1
         total = sum1 + sum2
-        if total % 10 != 0:
+        if (total % 10 != 0):
             print("INVALID")
             return 0
         elif first == 4:
             print("VISA")
             return 0
-        elif sec== 34 or sec == 37:
+        elif (sec== 34 or sec == 37):
             print("AMEX")
             return 0
-        elif sec == 51 or sec == 52 or sec == 53 or sec == 54 or sec== 55:
+        elif (sec == 51 or sec == 52 or sec == 53 or sec == 54 or sec== 55):
             print("MASTERCARD")
             return 0
         else:
