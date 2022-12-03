@@ -13,4 +13,10 @@ sentences = count_sentences(text)
 def count_letters(text):
     count = 0
     for ch in text:
+        if ch.isalpha():
+            count += 1
+
+def count_words(text):
+    count = 0
+    for ch in text:
         if 
