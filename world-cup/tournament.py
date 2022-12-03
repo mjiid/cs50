@@ -16,7 +16,8 @@ def main():
 
     teams = []
     # TODO: Read teams into memory from file
-
+    with open(sys.argv[1], "r") as file:
+        
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
