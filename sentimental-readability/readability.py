@@ -10,7 +10,7 @@ def main():
     sentences = count_sentences(text)
     L = (letters / words) * 100
     S = (sentences / words) * 100
-    index = int(0.0588 * L - 0.296 * S - 15.8 + 1)
+    index = round(0.0588 * L - 0.296 * S - 15.8)
 
     if index < 1:
         print("Before Grade 1")
