@@ -8,9 +8,17 @@ def main():
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
-    L = (letters / words) * 100;
-    S = (sentences / words) * 100;
-    index = roundf(0.0588 * L - 0.296 * S - 15.8);
+    L = (letters / words) * 100
+    S = (sentences / words) * 100
+    index = int(0.0588 * L - 0.296 * S - 15.8)
+
+    if index < 1:
+        print("Before Grade 1")
+    elif index >= 16:
+        print("Grade 16+")
+    else:
+        print("Grade %d\n", index)
+    return 0
 
 
 
@@ -37,3 +45,6 @@ def count_sentences(text):
         if ch == '.' or ch == '?' or ch == '!':
             count += 1
     return count
+
+
+main()
