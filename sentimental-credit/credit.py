@@ -12,8 +12,8 @@ def main():
         return 0
     else:
         first = int(num_list[0])
-        sec = int(j)
-        card_cpy = card_num
+        sec = int(num_list[0] + num_list[1])
+        card_cpy = number
         remainder, rem = 0, 0
         k, sum1, sum2, total = 0, 0, 0, 0
 
@@ -37,25 +37,15 @@ def main():
         elif first == 4:
             print("VISA")
             return 0
-        elif sec==
-        else if (first == 4)
-        {
-            printf("VISA\n");
-            return 0;
-        }
-        else if (two == 34 || two == 37)
-        {
-            printf("AMEX\n");
-            return 0;
-        }
-        else if (two == 51 || two == 52 || two == 53 || two == 54 || two == 55)
-        {
-            printf("MASTERCARD\n");
-            return 0;
-        }
-        else
-        {
-            printf("INVALID\n");
-            return 0;
-        }
+        elif sec== 34 or sec == 37:
+            print("AMEX")
+            return 0
+        elif sec == 51 or sec == 52 or sec == 53 or sec == 54 or sec== 55:
+            print("MASTERCARD")
+            return 0
+        else:
+            print("INVALID")
+            return 0
 
+
+main()
