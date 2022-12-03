@@ -12,7 +12,7 @@ def main():
         return 0
     else:
         first = int(num_list[0])
-        sec = int(num_list[1])
+        sec = num
         card_cpy = card_num
         remainder, rem = 0, 0
         k, sum1, sum2, total = 0, 0, 0, 0
@@ -30,20 +30,14 @@ def main():
             else:
                 sum2 += remainder
                 k = 1
-
-            else
-            {
-                sum2 += remainder;
-                k = 1;
-            }
-        }
-        total = sum1 + sum2;
-        // validate the card :
-        if ((total % 10) != 0)
-        {
-            printf("INVALID\n");
-            return 0;
-        }
+        total = sum1 + sum2
+        if total % 10 != 0:
+            print("INVALID")
+            return 0
+        elif first == 4:
+            print("VISA")
+            return 0
+        elif sec==
         else if (first == 4)
         {
             printf("VISA\n");
