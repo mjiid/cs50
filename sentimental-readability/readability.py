@@ -1,11 +1,16 @@
 # TODO
 from cs50 import get_string
 
-text = get_string("Text: ")
 
-letters = count_letters(text)
-words = count_words(text)
-sentences = count_sentences(text)
+def main():
+    text = get_string("Text: ")
+
+    letters = count_letters(text)
+    words = count_words(text)
+    sentences = count_sentences(text)
+    L = (letters / words) * 100;
+    S = (sentences / words) * 100;
+    index = roundf(0.0588 * L - 0.296 * S - 15.8);
 
 
 
