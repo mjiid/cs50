@@ -21,6 +21,10 @@ int main(void)
     float S = ((float) sentences / words) * 100;
     int index = roundf(0.0588 * L - 0.296 * S - 15.8);
 
+    printf("%f\n",L);
+    printf("%f\n",S);
+    printf("%d\n",index);
+
     //Output the grade:
     if (index < 1)
     {
