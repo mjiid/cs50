@@ -9,7 +9,7 @@ while True:
 for i in range(n):
     num = 0
     for j in range(2*n + 2):
-        if (j < n and j >= n - i - 1) or (j >= n + 2 and j <= n + 2 +i):
+        if (j < n and j >= n - i - 1) or (j >= n + 2 and j <= n + 2 + i):
             print("#", end="")
             num += 1
         elif num == 2*(i+1):
