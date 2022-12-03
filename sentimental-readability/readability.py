@@ -12,6 +12,10 @@ def main():
     S = (sentences / words) * 100
     index = int(0.0588 * L - 0.296 * S - 15.8)
 
+    print(L)
+    print(S)
+    print(index)
+
     if index < 1:
         print("Before Grade 1")
     elif index >= 16:
