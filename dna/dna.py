@@ -47,9 +47,8 @@ def main():
             k = True
         if k == True:
             print(person[0])
-            break
-        else:
-            print("No match")
+            return
+    print("No match")
     return
 
 
