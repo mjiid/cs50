@@ -10,7 +10,7 @@ def main():
         return 1
 
     # TODO: Read database file into a variable
-    with open("", newline="") as f:
+    with open(sys.argv[1]) as f:
         reader = csv.DictReader(f)
         for row in reader:
             print(row)
