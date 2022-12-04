@@ -13,8 +13,13 @@ def main():
     with open(sys.argv[1]) as f:
         reader = csv.reader(f)
         i = 0
+        srt = []
         for row in reader:
             if i == 0:
+                for j in range(len(row)):
+                    if j == 0:
+                        continue
+                    srt.append(row[j])
                 i = 1
                 continue
             i = 0
@@ -22,7 +27,8 @@ def main():
                 if j == 0:
                     continue
                 row[j] = int(row[j])
-            
+            print(srt)
+            print(row)
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
         content = file.read()
