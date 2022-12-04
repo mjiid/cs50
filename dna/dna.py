@@ -13,9 +13,7 @@ def main():
     with open(sys.argv[1]) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row['AGATC'] = int(row['AGATC'])
-            row['AATG'] = int(row['AATG'])
-            row['TATC'] = int(row['TATC'])
+            
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
