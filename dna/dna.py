@@ -21,7 +21,8 @@ def main():
             for j in range(len(row)):
                 if j == 0:
                     continue
-                row[i] = int(row[i])
+                row[j] = int(row[j])
+            print(row)
 
     # TODO: Read DNA sequence file into a variable
 
