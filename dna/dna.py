@@ -48,10 +48,6 @@ def main():
         if k == True:
             print(person[0])
             break
-
-
-
-
     return
 
 
