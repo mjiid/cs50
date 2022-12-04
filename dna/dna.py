@@ -10,8 +10,10 @@ def main():
         return 1
 
     # TODO: Read database file into a variable
-    with open("./databases/small.csv", "r") as f:
-        f.DictReader()
+    with open("", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            print(row)
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
