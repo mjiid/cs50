@@ -24,3 +24,19 @@ WHERE passport_number = (
     AND day = 29 ORDER BY hour, minute LIMIT(1)
     )
   );
+
+
+  -- The destination where the thief escaped to
+
+SELECT city
+FROM airports
+WHERE id = (
+    SELECT destination_airport_id
+    FROM flights
+    WHERE year = 2021
+    AND month = 7
+    AND day = 29 ORDER BY hour, minute LIMIT(1)
+);
+
+
+--
