@@ -11,4 +11,16 @@ SELECT description
 
 -- Get the name of the thief who is the one that left the bakery at the time of the steal.
 
-SELECT name FROM people WHERE passport_number = (SELECT passport_number FROM passengers WHERE flight_id = (SELECT id FROM flights WHERE year = 2021 AND month = 7 AND day = 29 ORDER BY hour, minute LIMIT(1)));
+SELECT name
+FROM people
+WHERE passport_number = (
+  SELECT passport_number
+  FROM passengers
+  WHERE flight_id = (
+    SELECT id
+    FROM flights
+    WHERE year = 2021
+    AND month = 7
+    AND day = 29 ORDER BY hour, minute LIMIT(1)
+    )
+  );
