@@ -71,7 +71,7 @@ FROM people
           AND day = 28
           AND hour = 10
           AND minute <= 25
-  );
+  )
 INTERSECT
 SELECT name
 FROM people
@@ -86,7 +86,7 @@ WHERE id IN (
         AND month = 7
         AND day = 28
         AND atm_location = "Leggett Street"
-  ));
+  ))
 INTERSECT
 SELECT name
 FROM people
