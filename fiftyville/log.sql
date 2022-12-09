@@ -15,7 +15,6 @@ FROM interviews
   AND month = 7
   AND day = 28;
 
-
 -- Cars the left the bakery parking lot:
 SELECT license_plate
 FROM bakery_security_logs
@@ -23,7 +22,8 @@ FROM bakery_security_logs
     AND month = 7
     AND day = 28
     AND hour = 10
-    AND minute <= 25;
+    AND minute <= 25
+    AND activity = "exit";
 
 
 -- Get the cars owner:
@@ -38,6 +38,7 @@ FROM people
           AND day = 28
           AND hour = 10
           AND minute <= 25
+          AND activity = "exit"
   );
 
 
