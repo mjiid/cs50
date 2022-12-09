@@ -62,34 +62,6 @@ WHERE id IN (
 -- Get every caller name:
 SELECT name
 FROM people
-  WHERE license_plate
-  IN (
-      SELECT license_plate
-      FROM bakery_security_logs
-        WHERE year = 2021
-          AND month = 7
-          AND day = 28
-          AND hour = 10
-          AND minute <= 25
-  )
-INTERSECT
-SELECT name
-FROM people
-WHERE id IN (
-  SELECT person_id
-  FROM bank_accounts
-  WHERE account_number
-  IN (
-    SELECT account_number
-    FROM atm_transactions
-      WHERE year = 2021
-        AND month = 7
-        AND day = 28
-        AND atm_location = "Leggett Street"
-  ))
-INTERSECT
-SELECT name
-FROM people
 WHERE phone_number
 IN (
   SELECT caller
@@ -98,15 +70,12 @@ IN (
   AND month = 7
   AND day = 28
   AND duration < 60
-)
-INTERSECT
-SELECT name
-FROM people
-WHERE passport_number IN
-(select passport_number
-FROM passengers
-where flight_id IN
-(select id
+);
+
+
+
+-- get the earliest flights:
+select id
 from flights
 where day = 29
 and month = 7
@@ -116,8 +85,4 @@ and origin_airport_id = (
   from airports
   where city = "Fiftyville"
   )
-  Order by hour, minute));
-
-
-
--- get the earliest flights:
+  Order by hour, minute;
