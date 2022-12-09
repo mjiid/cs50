@@ -158,4 +158,4 @@ and origin_airport_id = (
   Order by hour, minute Limit(1)));
 -- the city the thief escaped to:
 
-(Select passport_number from people where name = "Bruce")
+select destination_airport(select flight_id from passengers where passport_number IN (Select passport_number from people where name = "Bruce"))
