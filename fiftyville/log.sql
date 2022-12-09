@@ -87,8 +87,7 @@ and origin_airport_id = (
   select id
   from airports
   where city = "Fiftyville"
-  )
-  Order by hour, minute));
+  )Order by hour, minute));
 
 
 
