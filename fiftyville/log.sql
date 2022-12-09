@@ -76,4 +76,4 @@ IN (
 
 -- get the earliest flights:
 SELECT id
-FROm
+FROM
