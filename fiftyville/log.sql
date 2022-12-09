@@ -93,3 +93,69 @@ and origin_airport_id = (
   where city = "Fiftyville"
   )
   Order by hour, minute Limit(1)));
+
+
+
+  -- the thief is the intersection of all the names lists selected above i.e:
+
+SELECT name
+FROM people
+  WHERE license_plate
+  IN (
+      SELECT license_plate
+      FROM bakery_security_logs
+        WHERE year = 2021
+          AND month = 7
+          AND day = 28
+          AND hour = 10
+          AND minute <= 25
+          AND activity = "exit"
+  )
+  INTERSECT
+SELECT name
+FROM people
+WHERE id IN (
+  SELECT person_id
+  FROM bank_accounts
+  WHERE account_number
+  IN (
+    SELECT account_number
+    FROM atm_transactions
+      WHERE year = 2021
+        AND month = 7
+        AND day = 28
+        AND atm_location = "Leggett Street"
+  ))
+  INTERSECT
+SELECT name
+FROM people
+WHERE phone_number
+IN (
+  SELECT caller
+  FROM phone_calls
+  WHERE year = 2021
+  AND month = 7
+  AND day = 28
+  AND duration < 60
+)
+INTERSECT
+select name
+From people
+where passport_number IN
+(select passport_number
+FROM passengers
+where flight_id IN
+(select id
+from flights
+where day = 29
+and month = 7
+and year = 2021
+and origin_airport_id = (
+  select id
+  from airports
+  where city = "Fiftyville"
+  )
+  Order by hour, minute Limit(1)));
+-- the city the thief escaped to:
+
+(Select passport_number from people where name = "Bruce")
