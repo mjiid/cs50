@@ -70,12 +70,15 @@ IN (
   AND month = 7
   AND day = 28
   AND duration < 60
-);
-
-
-
--- get the earliest flights:
-select destination_airport_id
+)
+INTERSECT
+SELECT name
+FROM people
+WHERE passport_number IN
+(select passport_number
+FROM passengers
+where flight_id IN
+(select id
 from flights
 where day = 29
 and month = 7
@@ -85,4 +88,8 @@ and origin_airport_id = (
   from airports
   where city = "Fiftyville"
   )
-  Order by hour, minute sLimit (1);
+  Order by hour, minute));
+
+
+
+-- get the earliest flights:
