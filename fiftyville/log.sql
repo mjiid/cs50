@@ -92,4 +92,4 @@ and origin_airport_id = (
   from airports
   where city = "Fiftyville"
   )
-  Order by hour, minute));
+  Order by hour, minute Limit(1)));
