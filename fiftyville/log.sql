@@ -8,36 +8,72 @@ SELECT description
     AND day = 28
     AND street = "Humphrey Street";
 
+-- Get the the response of the intreviewed people:
+SELECT transcript
+FROM interviews
+  WHERE year = 2021
+  AND month = 7
+  AND day = 28;
 
--- Get the name of the thief who is the one that left the bakery at the time of the steal.
 
+-- Cars the left the bakery parking lot:
+SELECT license_plate
+FROM bakery_security_logs
+  WHERE year = 2021
+    AND month = 7
+    AND day = 28
+    AND hour = 10
+    AND minute <= 25;
+
+
+-- Get the cars owner:
 SELECT name
 FROM people
-WHERE passport_number = (
-  SELECT passport_number
-  FROM passengers
-  WHERE flight_id = (
-    SELECT id
-    FROM flights
-    WHERE year = 2021
-    AND month = 7
-    AND day = 29 ORDER BY hour, minute LIMIT(1)
-    )
+  WHERE license_plate
+  IN (
+      SELECT license_plate
+      FROM bakery_security_logs
+        WHERE year = 2021
+          AND month = 7
+          AND day = 28
+          AND hour = 10
+          AND minute <= 25
   );
 
 
-  -- The destination where the thief escaped to
+-- Get the names of people who withdrawed money on the ATM of leggett street.
+SELECT name
+FROM people
+WHERE id IN (
+  SELECT person_id
+  FROM bank_accounts
+  WHERE account_number
+  IN (
+    SELECT account_number
+    FROM atm_transactions
+      WHERE year = 2021
+        AND month = 7
+        AND day = 28
+        AND atm_location = "Leggett Street"
+  ));
 
-SELECT city
-FROM airports
-WHERE id = (
-    SELECT destination_airport_id
-    FROM flights
-    WHERE year = 2021
-    AND month = 7
-    AND day = 29 ORDER BY hour, minute LIMIT(1)
+
+
+-- Get every caller name:
+SELECT name
+FROM people
+WHERE phone_number
+IN (
+  SELECT caller
+  FROM phone_calls
+  WHERE year = 2021
+  AND month = 7
+  AND day = 28
+  AND duration < 60
 );
 
 
---
-SELECT name FROM people WHERE id IN (SELECT person_id FROM bank_accounts WHERE account_number IN(SELECT account_number FROM atm_transactions WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street"));
+
+-- get the earliest flights:
+SELECT id
+FROm
