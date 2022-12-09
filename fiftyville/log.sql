@@ -75,5 +75,14 @@ IN (
 
 
 -- get the earliest flights:
-SELECT id
-FROM
+select destination_airport_id
+from flights
+where day = 29
+and month = 7
+and year = 2021
+and origin_airport_id = (
+  select id
+  from airports
+  where city = "Fiftyville"
+  )
+  Order by hour, minute Limit (1);
