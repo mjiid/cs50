@@ -76,6 +76,7 @@ IN (
 
 
 -- get the earliest flights:
+select
 select id
 from flights
 where day = 29
