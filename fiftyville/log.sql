@@ -62,6 +62,34 @@ WHERE id IN (
 -- Get every caller name:
 SELECT name
 FROM people
+  WHERE license_plate
+  IN (
+      SELECT license_plate
+      FROM bakery_security_logs
+        WHERE year = 2021
+          AND month = 7
+          AND day = 28
+          AND hour = 10
+          AND minute <= 25
+  );
+INTERSECT
+SELECT name
+FROM people
+WHERE id IN (
+  SELECT person_id
+  FROM bank_accounts
+  WHERE account_number
+  IN (
+    SELECT account_number
+    FROM atm_transactions
+      WHERE year = 2021
+        AND month = 7
+        AND day = 28
+        AND atm_location = "Leggett Street"
+  ));
+INTERSECT
+SELECT name
+FROM people
 WHERE phone_number
 IN (
   SELECT caller
@@ -87,7 +115,8 @@ and origin_airport_id = (
   select id
   from airports
   where city = "Fiftyville"
-  )Order by hour, minute));
+  )
+  Order by hour, minute));
 
 
 
