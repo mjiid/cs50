@@ -76,8 +76,13 @@ IN (
 
 
 -- get the earliest flights:
-select
-select id
+select name
+From people
+where passport_number IN
+(select passport_number
+FROM passengers
+where flight_id IN
+(select id
 from flights
 where day = 29
 and month = 7
@@ -87,4 +92,4 @@ and origin_airport_id = (
   from airports
   where city = "Fiftyville"
   )
-  Order by hour, minute;
+  Order by hour, minute));
