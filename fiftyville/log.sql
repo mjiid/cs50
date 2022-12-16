@@ -156,6 +156,37 @@ and origin_airport_id = (
   where city = "Fiftyville"
   )
   Order by hour, minute Limit(1)));
--- the city the thief escaped to:
 
-select destination_airport(select flight_id from passengers where passport_number IN (Select passport_number from people where name = "Bruce"))
+
+-- Get the city the thief escaped to:
+
+SELECT city
+FROM airports
+WHERE id IN
+(
+SELECT destination_airport_id
+FROM flights
+WHERE id IN(
+  SELECT flight_id
+  FROM passengers
+  WHERE passport_number
+  IN (
+    SELECT passport_number
+    FROM people
+    WHERE name = "Bruce")));
+
+-- Get the person who helped the thief escape:
+
+SELECT name
+FROM people
+ WHERE phone_number = (
+  SELECT receiver
+  FROM phone_calls
+  WHERE caller = (
+    SELECT phone_number
+    FROM people
+    WHERE name = "Bruce")
+    AND year = 2021
+    AND month = 7
+    AND day = 28
+    AND duration < 60);
