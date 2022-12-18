@@ -15,6 +15,12 @@
                     clickedBtn.style.backgroundColor = "red";
                     document.getElementById("text").style.display = "block";
                 }
+                else
+                {
+                    clickedBtn.style.backgroundColor = "green";
+                    document.getElementById("text").innerHTML = "Correct!";
+                    document.getElementById("text").style.display = "block";
+                }
             }
         </script>
     </head>
@@ -28,7 +34,7 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>What's the best player in the moroccan team in the football world cup 2022</h3>
-                <h6 id = "text" style="display:none;">Comment</h6>
+                <h6 id = "text" style="display:none;">Incorrect!</h6>
                 <!-- TODO: Add multiple choice question here -->
                 <button onclick="checkAnswer(this)">Ounahi</button>
                 <button onclick="checkAnswer(this)">Boufal</button>
