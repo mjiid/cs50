@@ -7,12 +7,13 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            const answer = "Ounahi";
-            function checkAnswer(myAns)
+            const rightAnswer = "Ounahi";
+            function checkAnswer(clickedBtn)
             {
-                if (myAns != answer)
+                if (clickedBtn.innerHTML != rightAnswer)
                 {
-
+                    clickedBtn.style.backgroundColor = "red";
+                    document.getElementById("text").style.display = "block";
                 }
             }
         </script>
@@ -27,7 +28,7 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>What's the best player in the moroccan team in the football world cup 2022</h3>
-                <h6 style="display:none;">Comment</h6>
+                <h6 id = "text" style="display:none;">Comment</h6>
                 <!-- TODO: Add multiple choice question here -->
                 <button onclick="checkAnswer(this)">Ounahi</button>
                 <button onclick="checkAnswer(this)">Boufal</button>
