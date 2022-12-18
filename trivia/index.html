@@ -26,7 +26,8 @@
 
             function confirm()
             {
-                
+                const rightAnswer = "Argentina";
+                let answer = document.getElementById("answer").innerHTML;
             }
         </script>
     </head>
@@ -55,8 +56,9 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>Who is the world cup winner in 2022?</h3>
-                <input type="text">
+                <input id = "answer" type="text">
                 <button onclick="confirm()">Submit</button>
+                <h6 id = "text" style="display:none;">Incorrect!</h6>
             </div>
         </div>
     </body>
