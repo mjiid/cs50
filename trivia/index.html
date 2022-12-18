@@ -8,9 +8,12 @@
         <script>
             // TODO: Add code to check answers to questions
             const answer = "Ounahi";
-            function checkAnswer()
+            function checkAnswer(myAns)
             {
-                
+                if (myAns != answer)
+                {
+                    
+                }
             }
         </script>
     </head>
@@ -24,14 +27,14 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>What's the best player in the moroccan team in the football world cup 2022</h3>
-                <h6 style="display:block;">Comment</h6>
+                <h6 style="display:none;">Comment</h6>
                 <!-- TODO: Add multiple choice question here -->
-                <button onclick="checkAnswer()">Ounahi</button>
-                <button onclick="checkAnswer()">Boufal</button>
-                <button onclick="checkAnswer()">Bounou</button>
-                <button onclick="checkAnswer()">Amrabat</button>
-                <button onclick="checkAnswer()">Ziyech</button>
-                <button onclick="checkAnswer()">Hakimi</button>
+                <button onclick="checkAnswer(this.innerHTML)">Ounahi</button>
+                <button onclick="checkAnswer(this.innerHTML)">Boufal</button>
+                <button onclick="checkAnswer(this.innerHTML)">Bounou</button>
+                <button onclick="checkAnswer(this.innerHTML)">Amrabat</button>
+                <button onclick="checkAnswer(this.innerHTML)">Ziyech</button>
+                <button onclick="checkAnswer(this.innerHTML)">Hakimi</button>
             </div>
 
             <div class="section">
