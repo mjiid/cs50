@@ -31,13 +31,17 @@
                 if (answer == rightAnswer)
                 {
                     document.getElementById("answer").style.backgroundColor = "green";
-                    document.getElementById("text2").style.display = "block";
                     document.getElementById("text2").innerHTML = "Correct!";
+                    document.getElementById("text2").style.display = "block";
+
                 }
                 else
                 {
                     document.getElementById("answer").style.backgroundColor = "red";
+                    document.getElementById("text2").innerHTML = "Incorrect!";
                     document.getElementById("text2").style.display = "block";
+
+
                 }
             }
         </script>
