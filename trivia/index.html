@@ -13,13 +13,13 @@
                 if (clickedBtn.innerHTML != rightAnswer)
                 {
                     clickedBtn.style.backgroundColor = "red";
-                    document.getElementById("text").style.display = "block";
+                    document.getElementById("text1").style.display = "block";
                 }
                 else
                 {
                     clickedBtn.style.backgroundColor = "green";
-                    document.getElementById("text").innerHTML = "Correct!";
-                    document.getElementById("text").style.display = "block";
+                    document.getElementById("text1").innerHTML = "Correct!";
+                    document.getElementById("text1").style.display = "block";
                 }
             }
 
@@ -30,7 +30,14 @@
                 let answer = document.getElementById("answer").value;
                 if (answer == rightAnswer)
                 {
-                    
+                    document.getElementById("answer").style.backgroundColor = "green";
+                    document.getElementById("text2").stye.display = "block";
+                    document.getElementById("text2").innerHTML = "Correct!";
+                }
+                else
+                {
+                    document.getElementById("answer").style.backgroundColor = "red";
+                    document.getElementById("text2").stye.display = "block";
                 }
             }
         </script>
@@ -45,7 +52,7 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 <h3>What's the best player in the moroccan team in the football world cup 2022</h3>
-                <h6 id = "text" style="display:none;">Incorrect!</h6>
+                <h6 id = "text1" style="display:none;">Incorrect!</h6>
                 <!-- TODO: Add multiple choice question here -->
                 <button onclick="checkAnswer(this)">Ounahi</button>
                 <button onclick="checkAnswer(this)">Boufal</button>
@@ -62,7 +69,7 @@
                 <h3>Who is the world cup winner in 2022?</h3>
                 <input id = "answer" type="text">
                 <button onclick="confirm()">Submit</button>
-                <h6 id = "text" style="display:none;">Incorrect!</h6>
+                <h6 id = "text2" style="display:none;">Incorrect!</h6>
             </div>
         </div>
     </body>
