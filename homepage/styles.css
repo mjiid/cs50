@@ -3,4 +3,7 @@ body {
 }
 
 
-#navbar 
+#navbar ul {
+    list-style:none;
+    
+}
