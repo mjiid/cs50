@@ -23,6 +23,10 @@ body {
     margin : 0px;
 }
 
+#home {
+    color: #4086F8;
+}
+
 #navbar li {
     list-style: none;
     padding: 20px;
@@ -37,5 +41,5 @@ body {
 }
 
 #navbar a:hover{
-    background-color: 
+    background-color: #4086F8;
 }
