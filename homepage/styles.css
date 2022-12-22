@@ -8,7 +8,6 @@ body {
     overflow : hidden;
     display:flex;
     justify-content: flex-start;
-    padding: 10px;
 }
 
 .logo {
@@ -40,6 +39,6 @@ body {
     padding: 10px;
 }
 
-#navbar a:hover{
+#navbar li:hover{
     background-color: #4086F8;
 }
