@@ -4,4 +4,13 @@ body {
 
 #navbar {
     overflow : hidden;
+    display : flex;
+}
+
+#navbar li {
+    list-style: none;
+}
+
+#navbar a {
+    text-decoration : none;
 }
