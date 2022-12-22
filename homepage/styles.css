@@ -6,3 +6,9 @@ body{
 .logo {
     float: left;
 }
+
+#navbar {
+    width: 100%;
+    margin: 0 auto;
+    height: 70px;
+}
