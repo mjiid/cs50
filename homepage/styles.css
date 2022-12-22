@@ -6,10 +6,19 @@ body {
     overflow : hidden;
 }
 
+#navbar ul {
+    display: flex;
+    justify-content: flex-start;
+}
+
 #navbar li {
     list-style: none;
+    padding: 20px;
 }
 
 #navbar a {
     text-decoration : none;
+    color: #333;
+    font-weight: bold;
+    font-family: Helvetica;
 }
