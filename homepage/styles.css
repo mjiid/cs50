@@ -12,7 +12,7 @@ body {
 }
 
 .logo {
-    margin-right: 60%;
+    margin-right: 50%;
     padding: 0px;
 }
 
@@ -33,4 +33,9 @@ body {
     color: #333;
     font-weight: bold;
     font-family: Helvetica;
+    padding: 10px;
+}
+
+#navbar a:hover{
+    background-color: 
 }
