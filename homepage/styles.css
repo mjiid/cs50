@@ -1,5 +1,7 @@
 body {
     background-color : #EBF2FA;
+    margin: 0px;
+    padding: 0px;
 }
 
 #navbar {
@@ -13,6 +15,8 @@ body {
 #navbar ul {
     display: flex;
     justify-content: flex-start;
+    padding: 0px;
+    margin : 0px;
 }
 
 #navbar li {
