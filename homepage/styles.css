@@ -1,43 +1,8 @@
-body {
-    background-color : #EBF2FA;
+body{
+    padding:0px;
     margin: 0px;
-    padding: 0px;
-}
-
-#navbar {
-    overflow : hidden;
-    display:flex;
-    justify-content: flex-start;
 }
 
 .logo {
-    margin-right: 60%;
-    padding: 0px;
-}
-
-#navbar ul {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px;
-    margin : 0px;
-}
-
-#home {
-    color: #4086F8;
-}
-
-#navbar li {
-    list-style: none;
-    padding: 20px;
-}
-
-#navbar a {
-    text-decoration : none;
-    color: #333;
-    font-weight: bold;
-    font-family: Helvetica;
-}
-
-#navbar li:hover{
-    background-color: #4086F8;
+    float: left;
 }
