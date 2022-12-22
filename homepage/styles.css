@@ -9,12 +9,13 @@ body {
 }
 
 .logo {
-    margin: auto;
+    margin: 0px;
+    padding: 0px;
 }
 
 #navbar ul {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     padding: 0px;
     margin : 0px;
 }
