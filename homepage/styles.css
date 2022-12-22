@@ -6,10 +6,13 @@ body {
 
 #navbar {
     overflow : hidden;
+    display:flex;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
 .logo {
-    margin: 0px;
+    margin-right: 60%;
     padding: 0px;
 }
 
