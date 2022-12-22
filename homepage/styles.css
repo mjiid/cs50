@@ -11,7 +11,7 @@ body {
 }
 
 .logo {
-    margin-right: 50%;
+    margin-right: 60%;
     padding: 0px;
 }
 
@@ -36,7 +36,6 @@ body {
     color: #333;
     font-weight: bold;
     font-family: Helvetica;
-    padding: 10px;
 }
 
 #navbar li:hover{
