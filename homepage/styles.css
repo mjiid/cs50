@@ -4,7 +4,6 @@ body {
 
 #navbar {
     overflow : hidden;
-    display : flex;
 }
 
 #navbar li {
