@@ -1,47 +1,46 @@
-body{
-    padding:0px;
-    margin: 0px;
-}
+body {
+    margin: 0;
+    padding: 0;
+  }
 
-.logo {
+  .logo {
     float: left;
-}
+  }
+  /* ~~ Top Navigation Bar ~~ */
 
-.navbar-container {
+  #navbar-container {
     width: 1200px;
     margin: 0 auto;
     height: 70px;
-}
+  }
 
-.navbar {
-    background-color: #000;
-    text-align: center;
+  .navbar {
+    background-color: #352d2f;
     height: 70px;
     width: 100%;
-}
-
-.navbar img {
-    float: left;
-}
-
-.navbar ul {
+    text-align:center;
+  }
+  .navbar img{
+  float:left;
+  }
+  .navbar ul {
     padding: 0px;
     margin: 0px;
     text-align: center;
     display:inline-block;
     vertical-align:top;
-}
+  }
 
-.navbar li {
-    text-style-type: none;
+  .navbar li {
+    list-style-type: none;
     padding: 0px;
     height: 24px;
     margin-top: 4px;
     margin-bottom: 4px;
-    dsplay: inline;
-}
+    display: inline;
+  }
 
-.navbar li a {
+  .navbar li a {
     color: black;
     font-size: 16px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -49,4 +48,8 @@ body{
     line-height: 70px;
     padding: 5px 15px;
     opacity: 0.7;
-}
+  }
+
+  #menu {
+    float: right;
+  }
