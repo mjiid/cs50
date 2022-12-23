@@ -3,6 +3,12 @@ body {
   margin: 0px;
 }
 
+#navbar-container {
+  width : 1200px;
+  height: 70px;
+  margin: 0 auto;
+}
+
 .navbar {
   
 }
