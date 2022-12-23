@@ -25,4 +25,13 @@ body {
   margin: 0px;
   text-align: center;
   dsplay:inline-block;
+  vertical-align: top;
+}
+.navbar li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  
 }
