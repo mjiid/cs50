@@ -33,5 +33,15 @@ body {
   height: 24px;
   margin-top: 4px;
   margin-bottom: 4px;
-  
+  display: inline;
+}
+
+.navbar li a {
+  color: black;
+  font-size: 16px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  line-height: 70px;
+  padding: 5px 15px;
+  opacity: 0.7;
 }
