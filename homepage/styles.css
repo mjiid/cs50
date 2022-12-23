@@ -8,7 +8,35 @@ body{
 }
 
 .navbar-container {
-    width: 100%;
+    width: 1200px;
     margin: 0 auto;
     height: 70px;
+}
+
+.navbar {
+    background-color: #000;
+    text-align: center;
+    height: 70px;
+    width: 100%;
+}
+
+.navbar img {
+    float: left;
+}
+
+.navbar ul {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.navbar li {
+    text-style-type: none;
+    padding: 0px;
+    height: 24px;
+    margin-top: 4px;
+    margin: bottom;
+    dsplay: inline;
 }
