@@ -17,5 +17,12 @@ body {
 
 #navbar-container ul {
   list-style-type: none;
-  dispay: inline-block;
+}
+
+#navbar-container img {
+  
+}
+
+#navbar-container li {
+  display : inline-block;
 }
