@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -33,7 +34,6 @@ body {
 #navbar-container a {
   text-decoration: none;
   color: #FFF;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 #home {
@@ -42,4 +42,9 @@ body {
 
 #navbar-container a:hover {
   font-size: 16.5px;
+}
+
+.summary {
+  margin: 0px;
+  padding: 40px;
 }
