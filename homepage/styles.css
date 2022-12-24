@@ -80,6 +80,8 @@ body {
 .state h3 {
   font-size: 28px;
   font-weight: normal;
+  display: inline-block;
+  vertical-align: middle;
 }
 .name {
   font-weight: bold;
