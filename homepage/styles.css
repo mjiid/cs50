@@ -65,7 +65,8 @@ body {
 }
 
 .state {
-  padding: 40px;
+  padding: 4
+  0px;
   height: 200px;
   text-align: center;
 }
