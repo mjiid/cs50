@@ -17,6 +17,7 @@ body {
 
 #navbar-container ul {
   list-style-type: none;
+  margin: 0px;
 }
 
 #navbar-container img {
@@ -26,9 +27,10 @@ body {
 #navbar-container li {
   display : inline-block;
   padding: 20px;
+  line-height: 30px;
 }
 
 #navbar-container a {
   text-decoration: none;
-  color: black;
+  color: #FFF;
 }
