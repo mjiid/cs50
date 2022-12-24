@@ -11,5 +11,11 @@ body {
 }
 
 #navbar-container {
-  
+  width: 1200px;
+  text-align: center;
+}
+
+#navbar-container ul {
+  list-style-type: none;
+  dispay: inline-block;
 }
