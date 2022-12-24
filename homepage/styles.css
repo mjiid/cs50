@@ -20,8 +20,7 @@ body {
 }
 
 #navbar-container img {
-  text-align: left;
-
+  display: inline-block;
 }
 
 #navbar-container li {
