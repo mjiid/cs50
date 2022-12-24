@@ -20,7 +20,7 @@ body {
 }
 
 #navbar-container img {
-  display: inline-block;
+  float: left;
 }
 
 #navbar-container li {
