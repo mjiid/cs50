@@ -47,10 +47,16 @@ body {
 .sumheader {
   padding: 20px;
 }
+
 .sumheader img {
   float : right;
   padding: 0px 20px;
 }
+
+.sumheader img:hover {
+  cursor: pointer;
+}
+
 .summary {
   margin: 0px;
   padding: 40px;
