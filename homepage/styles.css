@@ -44,7 +44,15 @@ body {
   font-size: 16.5px;
 }
 
+.sumheader {
+  padding: 20px;
+}
+.sumheader img {
+  float : right;
+  padding: 0px 20px;
+}
 .summary {
   margin: 0px;
   padding: 40px;
+  display: inline;
 }
