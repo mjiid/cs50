@@ -25,4 +25,10 @@ body {
 
 #navbar-container li {
   display : inline-block;
+  padding: 20px;
+}
+
+#navbar-container a {
+  text-decoration: none;
+  color: black;
 }
