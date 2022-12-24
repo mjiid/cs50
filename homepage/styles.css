@@ -63,3 +63,12 @@ body {
   display: inline;
   color: #4086F8;
 }
+
+.state {
+  display: inline;
+}
+.state img {
+  float : left;
+  border-radius: 50%;
+  width: 200px;
+}
