@@ -66,6 +66,7 @@ body {
 
 .state {
   display: inline;
+  height: 300px;
   text-align: center;
 }
 .icon {
@@ -74,7 +75,7 @@ body {
   height: 200px;
   background-color: #4086F8;
   border-radius: 50%;
-  margin: 0 40px;
+  margin: 0px 40px;
 }
 
 .state h3 {
