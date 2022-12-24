@@ -1,12 +1,11 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: helvetica;
 }
 
 .navbar {
   width: 100%;
-  background-color: #333;
+  background-color: #222;
   height: 72px;
 }
 
@@ -18,6 +17,7 @@ body {
 #navbar-container ul {
   list-style-type: none;
   margin: 0px;
+  text-align: right;
 }
 
 #navbar-container img {
@@ -33,4 +33,13 @@ body {
 #navbar-container a {
   text-decoration: none;
   color: #FFF;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#home {
+  font-weight: bold;
+}
+
+#navbar-container a:hover {
+  text-decoration: underline;
 }
