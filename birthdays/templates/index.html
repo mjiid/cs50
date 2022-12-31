@@ -36,7 +36,12 @@
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
                         {% for person in registrants %}
-                            
+                            <tr>
+                                <td>{{ person["name"] }}</td>
+                                <td>{{ person["month"] }}</td>
+                                <td>{{ person["day"] }}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
