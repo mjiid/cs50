@@ -15,7 +15,12 @@
 
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
-                <input type="text" name = "name" placeholder="Name" >
+                <form action="/" method="POST">
+                    <input type="text" name = "name" placeholder="Name">
+                    <input type="text" name = "month" placeholder="Month">
+                    <input type="text" name = "day" placeholder="Day">
+                    <input type="submit" value = "Add birthday" >
+                </form>
             </div>
 
             <div class="section">
@@ -30,6 +35,7 @@
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
+                        
                     </tbody>
                 </table>
             </div>
