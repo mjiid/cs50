@@ -119,8 +119,17 @@ def register():
     """Register user"""
     if request.method == "GET":
         return render_template("register.html")
-    return apology("TODO")
-
+    else:
+        name = request.form.get("username")
+        if len(name)==0 or name in (db.execute("SELECT username FROM users;")):
+            return afipology("Try out another username!")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        if len(password) == 0 or len(confirmation) == 0 or password != confirmation:
+            return apology("There is some problem with your password!")
+        password = generate_password_hash(password, method = "pbkdf2:sha256", salt_length = 8)
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", name, password)
+        return redirect("/")
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
