@@ -122,7 +122,7 @@ def register():
     else:
         name = request.form.get("username")
         if len(name)==0 or name in (db.execute("SELECT username FROM users;")):
-            return afipology("Try out another username!")
+            return apology("Try out another username!")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if len(password) == 0 or len(confirmation) == 0 or password != confirmation:
