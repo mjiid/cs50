@@ -121,7 +121,7 @@ def register():
         return render_template("register.html")
     else:
         name = request.form.get("username")
-        if len(name)==0 or name in :
+        if len(name)==0:
             print(db.execute("SELECT username FROM users;"))
             return apology("Try out another username!")
         password = request.form.get("password")
