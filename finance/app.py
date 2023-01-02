@@ -131,7 +131,7 @@ def register():
         confirmation = request.form.get("confirmation")
         if len(password) == 0 or len(confirmation) == 0 or password != confirmation:
             return apology("There is some problem with your password!")
-        password = generate_password_hash(password, method = "pbkdf2:sha256", salt_length = 8)
+        password = generate_password_hash(password)
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", name, password)
         return redirect("/")
 
