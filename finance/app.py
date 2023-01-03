@@ -59,7 +59,8 @@ def buy():
             return apology("There is some problem with your symbol!")
         if int(shares) < 0:
             return apology("The number of shares cannot be negative")
-        price = lookup
+        price = lookup(symbol)['price']
+        print(price)
         return redirect("/")
 
 
