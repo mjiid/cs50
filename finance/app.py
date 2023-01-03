@@ -202,6 +202,7 @@ def sell():
         except UnboundLocalError:
             return apology("Verify your symbol")
         shares = request.form.get("shares")
+        print(shares)
         exist = False
         for ele in symbols:
             if ele['symbol'] == symbol:
@@ -209,7 +210,10 @@ def sell():
         if exist == False:
             return apology("Verify your symbol")
         owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
-        if int(shares) > owned_shares[0]['shares']:
-            return apology("You don't own enough shares")
+        try:
+            if int(shares) > owned_shares[0]['shares']:
+                return apology("You don't own enough shares")
+        except ValueError:
+            return apology("You should enter the number of shares")
         return render_template("/")
     return apology("TODO")
