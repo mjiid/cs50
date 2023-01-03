@@ -46,6 +46,7 @@ def index():
     if request.method == "GET":
         symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", sessions["user_id"])
         shares = db.execute("SELECT shares FROM purchases WHERE id = ?", sessions["user_id"])
+        price = lookup(symbol)['price']
         
         return render_template("index.html")
 
