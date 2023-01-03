@@ -44,10 +44,12 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
-        symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", sessions["user_id"])
-        shares = db.execute("SELECT shares FROM purchases WHERE id = ?", sessions["user_id"])
+        symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
+        shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
         price = lookup(symbol)['price']
-        
+        holding = shares * price
+        cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
+        total = cash + holding
         return render_template("index.html")
 
     return apology("TODO")
@@ -75,6 +77,7 @@ def buy():
             return apology("Sorry You can't afford this number of shares")
 
         db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash - shares * price), session["user_id"])
         return redirect("/")
 
 
