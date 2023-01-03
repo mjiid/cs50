@@ -209,7 +209,7 @@ def sell():
         if exist == False:
             return apology("Verify your symbol")
         owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
-        if shares > owned_shares[0]['shares']:
+        if int(shares) > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
         return render_template("/")
     return apology("TODO")
