@@ -50,7 +50,16 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "GET":
+        return render_template("buy.html")
+    elif request.method == "POST":
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
+        if lookup(symbol) == None:
+            return apology("There is some problem with your symbol!")
+        if int(shares) < 0:
+            return apology("The number of shares cannot be negative")
+        return redirect("/")
 
 
 @app.route("/history")
@@ -115,8 +124,9 @@ def quote():
         return render_template("quote.html")
     elif request.method == "POST":
         symbol = request.form.get("symbol")
-        return render_template("quoted.html", symbol = symbol, lookup = lookup )
-    return apology("TODO")
+        if lookup(symbol) != None:
+            return render_template("quoted.html", symbol = symbol, lookup = lookup )
+    return apology("The symbol you entered doesn't exist")
 
 
 @app.route("/register", methods=["GET", "POST"])
