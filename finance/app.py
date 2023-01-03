@@ -63,6 +63,7 @@ def buy():
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
         if price > cash:
             return apology("Sorry You can't afford this number of shares")
+        db.execute("INSERT INTO purchases (id, symbol, price) VALUES (?, ?, ?)", session["user_id"], symbol, price)
         return redirect("/")
 
 
