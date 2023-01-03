@@ -60,9 +60,9 @@ def buy():
         if int(shares) < 0:
             return apology("The number of shares cannot be negative")
         price = lookup(symbol)['price']
-        print(price)
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
-        print(cash)
+        if price > cash:
+            return apology("Sorry You can't afford this number of shares")
         return redirect("/")
 
 
