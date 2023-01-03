@@ -46,14 +46,6 @@ def index():
     if request.method == "GET":
         symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
         print(symbol)
-        shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
-        price = lookup(symbol)['price']
-        print(price)
-        holding = shares * price
-        cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-        cash = cash[0]['cash']
-        total = cash + holding
-        print(symbol, total)
         return render_template("index.html")
 
     return apology("TODO")
@@ -82,11 +74,12 @@ def buy():
         owned_sym = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
         owned = False
         for sym in owned_sym:
-            if sym['symbol'] = symbol:
+            if sym['symbol'] == symbol:
                 owned = True
         if owned:
-            db.execute("UPDATE purchases shares = ? WHERE symbol = ?", )
-        db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
+            db.execute("UPDATE purchases shares = ? WHERE symbol = ?", db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol) + shares, symbol)
+        else:
+            db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
         return redirect("/")
 
