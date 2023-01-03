@@ -10,6 +10,15 @@
         <th>Current cash balance</th>
         <th>Grand total</th>
     </tr>
-    
+    {% for item in data %}
+        <tr>
+            <td> {{ item['symbol'] }}</td>
+            <td> {{ item['shares'] }}</td>
+            <td> {{ item['price'] }}</td>
+            <td> {{ item['holding'] }}</td>
+            <td> {{ item['cash'] }}</td>
+            <td> {{ item['total'] }}</td>
+        </tr>
+    {% endfor %}
 </table>
 {% endblock %}

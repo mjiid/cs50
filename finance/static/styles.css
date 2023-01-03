@@ -21,3 +21,7 @@ nav .navbar-brand .green
 {
     color: #2e944b;
 }
+
+table th{
+    padding: 16px;
+}

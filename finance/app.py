@@ -45,19 +45,23 @@ def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
         try:
+            table = []
             symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
-            shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])[0]['shares']
-            price = lookup(symbol[0]['symbol'])['price']
-            holding = shares * price
+            shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
             cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-            cash = cash[0]['cash']
-            total = cash + holding
+            for i in range(len(symbol)):
+                price = lookup(symbol[i]['symbol'])['price']
+                shares = shares[i]['shares']
+                holding = shares * price
+                cash = cash[i]['cash']
+                total = cash + holding
+                table.append({'symbol' : symbol[i]['symbol'], 'shares' : shares , 'price' : price, 'holding': holding, 'cash' : cash, 'total' : total})
         except IndexError:
             pass
 
-        return render_template("index.html")
+        return render_template("index.html", data = table)
 
-    return apology("TODO")
+    return apology("This page doesn't exist")
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -186,4 +190,8 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    if request.method == "GET":
+        return render_template("sell.html")
+    elif request.method == "POST":
+        
     return apology("TODO")
