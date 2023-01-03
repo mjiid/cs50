@@ -61,7 +61,8 @@ def buy():
             return apology("The number of shares cannot be negative")
         price = lookup(symbol)['price']
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
-        if price > cash:
+
+        if price > cash[0]['cash']:
             return apology("Sorry You can't afford this number of shares")
         db.execute("INSERT INTO purchases (id, symbol, price) VALUES (?, ?, ?)", session["user_id"], symbol, price)
         return redirect("/")
