@@ -54,17 +54,20 @@ def buy():
         return render_template("buy.html")
     elif request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
+        shares = int(request.form.get("shares"))
+
         if lookup(symbol) == None:
             return apology("There is some problem with your symbol!")
-        if int(shares) < 0:
+        if shares < 0:
             return apology("The number of shares cannot be negative")
+
         price = lookup(symbol)['price']
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
 
-        if price > cash[0]['cash']:
+        if shares*price > cash[0]['cash']:
             return apology("Sorry You can't afford this number of shares")
-        db.execute("INSERT INTO purchases (id, symbol, price) VALUES (?, ?, ?)", session["user_id"], symbol, price)
+
+        db.execute("INSERT INTO purchases (id, symbol, price) VALUES (?, ?, ?)", session["user_id"], symbol, shares*price)
         return redirect("/")
 
 
