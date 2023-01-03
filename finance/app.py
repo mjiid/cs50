@@ -45,16 +45,12 @@ def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
         symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
-        print(symbol)
         shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])[0]['shares']
-        print(shares)
-#        price = lookup(symbol)['price']
-#        print(price)
-#        holding = shares * price
-#        cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
-#        cash = cash[0]['cash']
- #       total = cash + holding
-  #      print(symbol, total)
+        price = lookup(symbol[0]['symbol'])['price']
+        holding = shares * price
+        cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
+        cash = cash[0]['cash']
+        total = cash + holding
         return render_template("index.html")
 
     return apology("TODO")
