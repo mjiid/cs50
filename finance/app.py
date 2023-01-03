@@ -47,6 +47,7 @@ def index():
         symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
         shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
         price = lookup(symbol)['price']
+        print(price)
         holding = shares * price
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
         cash = cash[0]['cash']
