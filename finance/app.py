@@ -51,7 +51,7 @@ def index():
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
         cash = cash[0]['cash']
         total = cash + holding
-        print(symbol)
+        print(symbol, total)
         return render_template("index.html")
 
     return apology("TODO")
