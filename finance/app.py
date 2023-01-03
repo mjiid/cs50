@@ -191,8 +191,9 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "GET":
-        symbols = db.execute("SELECT symbol from purchases WHERE")
-        return render_template("sell.html", symbols=symbols)
+        symbols = db.execute("SELECT symbol from purchases WHERE id = ?", session["user_id"])
+        print(symbols)
+        return render_template("sell.html", symbols = symbols)
     elif request.method == "POST":
-
+        print("hi")
     return apology("TODO")

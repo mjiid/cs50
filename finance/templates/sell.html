@@ -3,7 +3,10 @@
 {% block main %}
     <form action="/sell" method="post">
         <select name = "symbol">
-            
+            <option>    </option>
+            {% for symbol in symbols %}
+                <option>{{ symbol['symbol'] }}</option>
+            {% endfor %}
         </select>
     </form>
 {% endblock %}
