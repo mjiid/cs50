@@ -49,7 +49,9 @@ def index():
         price = lookup(symbol)['price']
         holding = shares * price
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
+        cash = cash[0]['cash']
         total = cash + holding
+        print(symbol)
         return render_template("index.html")
 
     return apology("TODO")
@@ -77,7 +79,7 @@ def buy():
             return apology("Sorry You can't afford this number of shares")
 
         db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash - shares * price), session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
         return redirect("/")
 
 
