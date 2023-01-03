@@ -87,7 +87,7 @@ def buy():
                 owned = True
         if owned:
             old = db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol)[0]['shares']
-            db.execute("UPDATE purchases shares = ? WHERE symbol = ?", old + shares, symbol)
+            db.execute("UPDATE purchases shares = ?, price = ?, id = ?, symbol = ?  WHERE symbol = ?", old + shares, db.execute("SELECT price where id = ?,), symbol)
         else:
             db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
