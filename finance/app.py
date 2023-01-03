@@ -61,6 +61,7 @@ def buy():
             return apology("The number of shares cannot be negative")
         price = lookup(symbol)['price']
         print(price)
+        cash = db.execute("SELECT cash FROM users where username = ?",  )
         return redirect("/")
 
 
