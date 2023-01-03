@@ -86,8 +86,8 @@ def buy():
             if sym['symbol'] == symbol:
                 owned = True
         if owned:
-            print(db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol))
-            db.execute("UPDATE purchases shares = ? WHERE symbol = ?", db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol)[0]['shares'] + shares, symbol)
+            old = db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol)[0]['shares']
+            db.execute("UPDATE purchases shares = ? WHERE symbol = ?", old + shares, symbol)
         else:
             db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
