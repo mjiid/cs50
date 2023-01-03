@@ -43,7 +43,12 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    
+    if request.method == "GET":
+        symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", sessions["user_id"])
+        shares = db.execute("SELECT shares FROM purchases WHERE id = ?", sessions["user_id"])
+        
+        return render_template("index.html")
+
     return apology("TODO")
 
 
