@@ -195,13 +195,22 @@ def sell():
         print(symbols)
         return render_template("sell.html", symbols = symbols)
     elif request.method == "POST":
-        symbol = request.form.get("symbol")
-        print(symbol)
-        shares = request.form.get("shares")
-        print(shares)
-        if symbol not in symbols:
+        symbols = db.execute("SELECT symbol from purchases WHERE id = ?", session["user_id"])
+        try:
+            symbol = request.form.get("symbol")
+            print(symbol)
+        except UnboundLocalError:
             return apology("Verify your symbol")
-        elif shares > db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id]):
+        shares = request.form.get("shares")
+        exist = False
+        for ele in symbols:
+            if ele['symbol'] == symbol:
+                exist = True
+        if exist == False:
+            return apology("Verify your symbol")
+        owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
+        print(owned_shares)
+        elif shares > 1:
             return apology("You don't own enough shares")
         return render_template("/")
     return apology("TODO")
