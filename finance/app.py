@@ -43,6 +43,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    
     return apology("TODO")
 
 
@@ -67,7 +68,7 @@ def buy():
         if shares*price > cash[0]['cash']:
             return apology("Sorry You can't afford this number of shares")
 
-        db.execute("INSERT INTO purchases (id, symbol, price) VALUES (?, ?, ?)", session["user_id"], symbol, shares*price)
+        db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
         return redirect("/")
 
 
