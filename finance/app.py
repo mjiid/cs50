@@ -212,5 +212,5 @@ def sell():
             return apology("You should enter the number of shares")
         elif int(shares) > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
-        db.execute("UPDATE purchases SET shares = ?, price = ? WHERE symbol = ?", (owned_shares - shares), )
+        db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares - shares), symbol)
     return redirect("/")
