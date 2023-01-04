@@ -48,6 +48,9 @@ def index():
             table = []
             symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
             shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
+            if shares[0]['shares'] == 0:
+                db.execute("DELETE FROM purchases WHERE symbol = ? AND id = ?", symbol[0]['symbol'], session['user_id'])
+                return render_template("index.html")
             cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
             for i in range(len(symbol)):
                 price = lookup(symbol[i]['symbol'])['price']
@@ -102,6 +105,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
+    
     return apology("TODO")
 
 
@@ -216,7 +220,4 @@ def sell():
         price = lookup(symbol)['price']
         db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares[0]['shares'] - shares), symbol)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
-        print(owned_shares[0]['shares'])
-        if owned_shares[0]['shares'] == 0:
-            db.execute("DELETE FROM purchases WHERE symbol = ? AND id = ?", symbol, session['user_id'])
     return redirect("/")
