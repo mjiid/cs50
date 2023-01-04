@@ -203,11 +203,11 @@ def sell():
             return apology("Verify your symbol")
         shares = request.form.get("shares")
         print(shares)
-        exist = False
+        owned = False
         for ele in symbols:
             if ele['symbol'] == symbol:
-                exist = True
-        if exist == False:
+                owned = True
+        if owned == False:
             return apology("Verify your symbol")
         owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
         if shares == "":
