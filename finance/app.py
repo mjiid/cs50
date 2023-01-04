@@ -212,6 +212,8 @@ def sell():
             return apology("You should enter the number of shares")
         elif shares > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
+        cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
+        price = lookup(symbol)['price']
         db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares[0]['shares'] - shares), symbol)
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", , session['user_id'])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
     return redirect("/")
