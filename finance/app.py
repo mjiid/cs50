@@ -97,6 +97,7 @@ def buy():
             db.execute("UPDATE purchases SET shares = ? WHERE symbol = ? and id = ?", old + shares, symbol, session['user_id'])
         else:
             db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
+        db.execute("")
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
         return redirect("/")
 
@@ -105,7 +106,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    
+
     return apology("TODO")
 
 
