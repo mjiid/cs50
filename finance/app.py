@@ -98,7 +98,7 @@ def buy():
             db.execute("UPDATE purchases SET shares = ? WHERE symbol = ? and id = ?", old + shares, symbol, session['user_id'])
         else:
             db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
-        db.execute("INSERT INTO purchases (date, operation) VALUES (?, ?)", date.today(), "Buy")
+        db.execute("INSERT INTO purchases (date, operation) VALUES (?, ?)", date.today(), "Bought")
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
         return redirect("/")
 
@@ -222,4 +222,5 @@ def sell():
         price = lookup(symbol)['price']
         db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares[0]['shares'] - shares), symbol)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
+        db.execute("INSERT INTO purchases (date, operation) VALUES (?, ?)", date.today(), "Sold")
     return redirect("/")
