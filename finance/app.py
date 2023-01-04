@@ -206,11 +206,11 @@ def sell():
                 owned = True
         if owned == False:
             return apology("Verify your symbol")
-        shares = request.form.get("shares")
+        shares = int(request.form.get("shares"))
         owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
         if shares == "":
             return apology("You should enter the number of shares")
-        elif int(shares) > owned_shares[0]['shares']:
+        elif shares > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
-        db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares - shares), symbol)
+        db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares[0]['shares'] - shares), symbol)
     return redirect("/")
