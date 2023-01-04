@@ -220,6 +220,6 @@ def sell():
             return apology("You don't own enough shares")
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
         price = lookup(symbol)['price']
-        db.execute("INSERT INTO purchases (symbol, price, date, shares, operation) VALUES (?, ?, ?, ?, ?) WHERE symbol = ?",symbol, price, date.today(), shares, "Sold", symbol)
+        db.execute("INSERT INTO purchases (symbol, price, date, shares, operation) VALUES (?, ?, ?, ?, ?) WHERE symbol = ?",symbol, price, date.today(), (owned_shares[0]['shares'] - shares), "Sold", symbol)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
     return redirect("/")
