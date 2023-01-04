@@ -192,13 +192,11 @@ def sell():
     """Sell shares of stock"""
     if request.method == "GET":
         symbols = db.execute("SELECT symbol from purchases WHERE id = ?", session["user_id"])
-        print(symbols)
         return render_template("sell.html", symbols = symbols)
     elif request.method == "POST":
         symbols = db.execute("SELECT symbol from purchases WHERE id = ?", session["user_id"])
         try:
             symbol = request.form.get("symbol")
-            print(symbol)
         except UnboundLocalError:
             return apology("Verify your symbol")
         #check if the user owns the symbol
@@ -214,5 +212,5 @@ def sell():
             return apology("You should enter the number of shares")
         elif int(shares) > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
-        db.execute("UPDATE users SET ")
-    return apology("TODO")
+        db.execute("UPDATE purchases SET shares = ?, price = ? WHERE symbol = ?", (owned_shares - shares), )
+    return redirect("/")
