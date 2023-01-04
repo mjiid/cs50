@@ -217,5 +217,5 @@ def sell():
         db.execute("UPDATE purchases SET shares = ? WHERE symbol = ?", (owned_shares[0]['shares'] - shares), symbol)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
         if owned_shares[0]['shares'] == 0:
-            
+            db.execute("DELETE FROM purchases WHERE symbol = ? AND id = ?", symbol, session['user_id'])
     return redirect("/")
