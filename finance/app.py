@@ -214,5 +214,5 @@ def sell():
             return apology("You should enter the number of shares")
         elif int(shares) > owned_shares[0]['shares']:
             return apology("You don't own enough shares")
-        db.execute("UPDATE users SE)
+        db.execute("UPDATE users SET ")
     return apology("TODO")
