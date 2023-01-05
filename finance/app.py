@@ -48,18 +48,20 @@ def index():
         try:
             table = []
             symbol = db.execute("SELECT symbol FROM purchases WHERE id = ?", session["user_id"])
-            shares = db.execute("SELECT shares FROM purchases WHERE id = ?", session["user_id"])
-            if shares[0]['shares'] == 0:
+            shares = db.execute("SELECT owned_shares FROM purchases WHERE id = ?", session["user_id"])
+            print(shares)
+            print(symbol)
+            if shares[0]['owned_shares'] == 0:
                 db.execute("DELETE FROM purchases WHERE symbol = ? AND id = ?", symbol[0]['symbol'], session['user_id'])
                 return render_template("index.html")
             cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"])
             for i in range(len(symbol)):
                 price = lookup(symbol[i]['symbol'])['price']
-                shares = shares[i]['shares']
-                holding = shares * price
-                cash = cash[i]['cash']
+                share_ = shares[i]['owned_shares']
+                holding = share * price
+                cash_ = cash[i]['cash']
                 total = cash + holding
-                table.append({'symbol' : symbol[i]['symbol'], 'shares' : shares , 'price' : price, 'holding': holding, 'cash' : cash, 'total' : total})
+                table.append({'symbol' : symbol[i]['symbol'], 'shares' : share_ , 'price' : price, 'holding': holding, 'cash' : cash_, 'total' : total})
         except IndexError:
             pass
 
@@ -94,11 +96,12 @@ def buy():
             if sym['symbol'] == symbol:
                 owned = True
         if owned:
-            old = db.execute("SELECT shares FROM purchases WHERE symbol = ?", symbol)[0]['shares']
-            db.execute("UPDATE purchases SET shares = ? WHERE symbol = ? and id = ?", old + shares, symbol, session['user_id'])
+            old = db.execute("SELECT owned_shares FROM purchases WHERE symbol = ?", symbol)[0]['owned_shares']
+            db.execute("UPDATE purchases SET owned_shares = ? WHERE symbol = ? and id = ?", old + shares, symbol, session['user_id'])
         else:
-            db.execute("INSERT INTO purchases (id, symbol, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
-        db.execute("INSERT INTO purchases (date, operation) VALUES (?, ?)", date.today(), "Bought")
+            db.execute("INSERT INTO purchases (id, symbol, price, owned_shares) VALUES (?, ?, ?, ?)", session["user_id"], symbol, price, shares)
+
+        db.execute("INSERT INTO purchases (date, operation, shares, price) VALUES (?, ?, ?, ?)", date.today(), "Bought", shares, price)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", (cash[0]['cash'] - shares * price), session["user_id"])
         return redirect("/")
 
@@ -107,7 +110,9 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
+    if request.method == "GET":
 
+        return render_template("/history.html")
     return apology("TODO")
 
 
@@ -213,13 +218,13 @@ def sell():
         if owned == False:
             return apology("Verify your symbol")
         shares = int(request.form.get("shares"))
-        owned_shares = db.execute("SELECT shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
+        owned_shares = db.execute("SELECT owned_shares FROM purchases WHERE symbol = ? AND id = ?", symbol, session["user_id"])
         if shares == "":
             return apology("You should enter the number of shares")
-        elif shares > owned_shares[0]['shares']:
+        elif shares > owned_shares[0]['owned_shares']:
             return apology("You don't own enough shares")
         cash = db.execute("SELECT cash FROM users where id = ?", session["user_id"] )
         price = lookup(symbol)['price']
-        db.execute("INSERT INTO purchases (symbol, price, date, shares, operation) VALUES (?, ?, ?, ?, ?) WHERE symbol = ?",symbol, price, date.today(), (owned_shares[0]['shares'] - shares), "Sold", symbol)
+        db.execute("INSERT INTO purchases (symbol, price, date, shares, operation, id, owned_shares) VALUES (?, ?, ?, ?, ?, ?)", symbol, price, date.today(), shares, "Sold", session["user_id"], owned_shares[0]['owned_shares'] - shares)
         db.execute("UPDATE users SET cash = ? WHERE id = ?", cash[0]['cash'] + shares * price, session['user_id'])
     return redirect("/")
