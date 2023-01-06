@@ -114,7 +114,39 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    return apology("TODO")
+    if request.method == "GET":
+        return render_template("register.html")
+    else:
+    #Getting the data from the user:
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+
+    #Checking if the username is blank or already exist:
+        if len(username) == 0:
+            return apology("Try entering a username")
+        else:
+            used_usernames = db.execute("SELECT username FROM users;")
+            for name in used_usernames:
+                if username == name['username']:
+                    return apology("This username is already used")
+
+    #Check if the password is blank or do not match the confirmation:
+        if len(password) == 0:
+            return apology("You have to enter a password")
+        elif password != confirmation:
+            return apology("The password and the confirmation you entered do not match")
+        else:
+            #hashing the password:
+            password = generate_password_hash(password)
+
+    #Adding the new user to the data base:
+        db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, password)
+        #the user now is registered and their data is in the data base.
+
+    #Take the user to login after registration:
+    return render_template("login.html")
+
 
 
 @app.route("/sell", methods=["GET", "POST"])
