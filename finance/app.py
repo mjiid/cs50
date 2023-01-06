@@ -47,7 +47,19 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "GET":
+        return render_template("buy.html")
+
+    #Getting the data from the user:
+    symbol = request.form.get("symbol")
+    shares = int(request.form.get("symbol"))
+
+    #Check if the data entered is valid :
+    if len(symbol) == 0:
+        return apology("You should enter a symbol")
+    elif lookup(symbol) == None:
+        return apology("This symbol does not exist")
+    
 
 
 @app.route("/history")
