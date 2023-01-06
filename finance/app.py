@@ -117,7 +117,7 @@ def quote():
     #Get the data about the symbol from the API:
     symbol_data = lookup(symbol)
 
-    #the sy
+    #Check if the symbol is valid:
     if symbol_data == None:
         return apology("Your symbol is not valid")
 
