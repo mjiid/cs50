@@ -111,9 +111,16 @@ def quote():
     if request.method == "GET":
         return render_template("quote.html")
     else:
-    #Getting the stock symbol from the user:
+
+        #Getting the stock symbol from the user:
         symbol = request.form.get("symbol")
-        
+
+        #Get the data about the symbol from the API:
+        symbol_data = lookup(symbol)
+
+        #send the user to the page where the data about the symbol is displayed:
+        return render_template("quoted.html", symbol_data = symbol_data)
+
 
 
 
