@@ -1,5 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block main %}
-
+<ul>
+    <li>Company name : {{ symbol_data['name'] }}</li>
+    <li>Symbol : {{ symbol_data['symbol'] }}</li>
+    <li>Price : {{ symbol_data['price'] }}</li>
+</ul>
 {% endblock %}
