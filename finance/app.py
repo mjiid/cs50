@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import date
 
 from helpers import apology, login_required, lookup, usd
 
@@ -40,7 +41,21 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    if request.method == "GET":
+
+        #Get the data of the owned stocks from the database
+        username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
+        symbols = db.execute("SELECT symbol FROM owned WHERE username = ?", username)
+        shares = db.execute("SELECT shares FROM owned WHERE username = ?", username)
+        prices = db.execute("SELECT price FROM owned WHERE username = ?", username)
+        holdings = db.execute("SELECT holding FROM owned WHERE username = ?", username)
+        balances = db.execute("SELECT balance FROM owned WHERE username = ?", username)
+        totals = db.execute("SELECT total FROM owned WHERE username = ?", username)
+
+        return render_template("index.html",symbols = symbols, shares = shares, prices = prices, holdings = holdings, balances = balances, totals = totals, n = len(symbols))
+
+
+    return apology("Invalid request method")
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -52,14 +67,54 @@ def buy():
 
     #Getting the data from the user:
     symbol = request.form.get("symbol")
-    shares = int(request.form.get("symbol"))
+    num_shares = request.form.get("shares")
 
     #Check if the data entered is valid :
-    if len(symbol) == 0:
+    if symbol == '':
         return apology("You should enter a symbol")
     elif lookup(symbol) == None:
         return apology("This symbol does not exist")
-    
+
+    if num_shares == '':
+        return apology("You should enter the number of shares")
+    elif int(num_shares) < 0:
+        return apology("The number of shares should be positive")
+
+    num_shares = int(num_shares)
+
+    #now that the input is valid, Store the user purchase in the database:
+    #Get the data about the user from the database:
+    price = lookup(symbol)['price']
+    owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
+    username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
+
+    #Check if the user can afford the symbol:
+    if num_shares * price > owned_cash:
+        return apology("Sorry but you can't afford this deal")
+
+    #The purchase is now valid, let's add it to the database:
+    db.execute("INSERT INTO purchases (username, symbol, PRICE, date, shares) VALUES (?, ?, ?, ?, ?)", username, symbol, price, date.today(), num_shares)
+    db.execute("UPDATE users SET cash = ? WHERE id = ?", owned_cash - (num_shares * price), session['user_id'])
+    owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
+    #add the data to the owned table:
+    username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
+    owned_symbols = db.execute("SELECT symbol FROM owned WHERE username = ?", username)
+    owned = False
+    for sym in owned_symbols:
+        if sym['symbol'] == symbol:
+            owned = True
+
+    if owned:
+        owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
+        shares = db.execute("SELECT shares FROM owned WHERE username = ?", username)[0]['shares']
+        db.execute("UPDATE owned SET shares = ?, price = ?, holding = ?, balance = ?, total = ?", shares + num_shares, price, num_shares * price, owned_cash, (owned_cash + (num_shares + shares) * lookup(symbol)['price']))
+    else:
+        db.execute("INSERT INTO owned (username, symbol, shares, price, holding, balance, total) VALUES (?, ?, ?, ?, ?, ?, ?)", username, symbol, num_shares, price, num_shares * price, owned_cash, owned_cash + num_shares * lookup(symbol)['price'])
+
+    #Now that everything is good, we send the user to the home page:
+    return redirect("/")
+
+
 
 
 @app.route("/history")
@@ -151,7 +206,7 @@ def register():
         confirmation = request.form.get("confirmation")
 
     #Checking if the username is blank or already exist:
-        if len(username) == 0:
+        if username == '':
             return apology("Try entering a username")
         else:
             used_usernames = db.execute("SELECT username FROM users;")
@@ -160,7 +215,7 @@ def register():
                     return apology("This username is already used")
 
     #Check if the password is blank or do not match the confirmation:
-        if len(password) == 0:
+        if password == '':
             return apology("You have to enter a password")
         elif password != confirmation:
             return apology("The password and the confirmation you entered do not match")
@@ -181,4 +236,32 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
+    symbols = db.execute("SELECT symbol FROM owned WHERE username = ?", username)
+
+    if request.method == "GET":
+        return render_template('sell.html', symbols = symbols, n = len(symbols))
+
+    #Check if the user input is valid :
+    selected_symbol = request.form.get("symbol")
+    selected_shares = request.form.get("shares")
+
+    #if the user fails to choose a symbol:
+    if selected_symbol == None :
+        return apology("You should select a symbol")
+
+    #if the user enters a negative number of shares:
+    if selected_shares == "" or (int(selected_shares)) <= 0:
+        return apology("The number of shares should be a positive number")
+    selected_shares = int(selected_shares)
+
+    #if the user doesn't own enough shares:
+    owned_shares = db.execute("SELECT shares FROM owned WHERE username = ? AND symbol = ?", username, selected_symbol)[0]['shares']
+    if selected_shares > owned_shares:
+        return apology("You don't own enough shares")
+
+    #The user input is now valid, let's modify the database:
+    
+
+
+

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<table>
+    <tr>
+        <th>Stocks</th>
+        <th>Shares</th>
+        <th>Current price</th>
+        <th>Holding value</th>
+        <th>Cash balance</th>
+        <th>Total</th>
+    </tr>
+
+    {% for i in range(n) %}
+    <tr style="padding:10px;">
+        <td> {{ symbols[i]['symbol'] }} </td>
+        <td> {{ shares[i]['shares'] }} </td>
+        <td> {{ prices[i]['price'] }} </td>
+        <td> {{ holdings[i]['holding'] }} </td>
+        <td> {{ balances[i]['balance'] }} </td>
+        <td> {{ totals[i]['total'] }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

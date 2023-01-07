@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<form action = "/sell" method = "post">
+    <select name = "symbol">
+        <option disabled selected value> -- Symbol -- </option>
+        {% for i in range(n) %}
+        <option> {{ symbols[i]['symbol'] }}</option>
+        {% endfor %}
+    </select>
+    <input name = "shares" type = "text" palceholder = "Number of shares">
+    <input type = "submit" type = "submit" value = "Submit">
+</form>
+{% endblock %}

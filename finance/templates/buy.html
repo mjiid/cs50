@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block main %}
-<form action = "/register" method = "post">
-    <input name = "symbol" type = "text" placeholder = "Enter the symbol">
-    <input name = "shares" type = "text" placeholder = "Enter the number of shares">
+<form action = "/buy" method = "post">
+    <input name = "symbol" type = "text" placeholder = "Symbol">
+    <input name = "shares" type = "text" placeholder = "Number of shares">
     <input type = "submit" value = "Buy">
 </form>
 {% endblock %}
