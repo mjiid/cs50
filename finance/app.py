@@ -52,7 +52,7 @@ def index():
         balances = db.execute("SELECT balance FROM owned WHERE username = ?", username)
         totals = db.execute("SELECT total FROM owned WHERE username = ?", username)
 
-        return render_template("index.html",symbols = symbols, shares = shares, prices = prices, holdings = holdings, balances = balances, totals = totals, n = len(symbols))
+        return render_template("index.html",symbols = symbols, shares = shares, prices = prices, holdings = holdings, balances = balances, totals = totals, n = len(symbols), usd = usd)
 
 
     return apology("Invalid request method")
@@ -189,7 +189,7 @@ def quote():
         return apology("Your symbol is not valid")
 
     #send the user to the page where the data about the symbol is displayed:
-    return render_template("quoted.html", symbol_data = symbol_data)
+    return render_template("quoted.html", symbol_data = symbol_data, usd = usd)
 
 
 

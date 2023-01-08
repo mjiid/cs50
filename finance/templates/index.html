@@ -15,10 +15,10 @@
     <tr style="padding:10px;">
         <td> {{ symbols[i]['symbol'] }} </td>
         <td> {{ shares[i]['shares'] }} </td>
-        <td> {{ prices[i]['price'] }} </td>
-        <td> {{ holdings[i]['holding'] }} </td>
-        <td> {{ balances[i]['balance'] }} </td>
-        <td> {{ totals[i]['total'] }} </td>
+        <td> {{ usd(prices[i]['price']) }} </td>
+        <td> {{ usd(holdings[i]['holding']) }} </td>
+        <td> {{ usd(balances[i]['balance']) }} </td>
+        <td> {{ usd(totals[i]['total']) }} </td>
     </tr>
     {% endfor %}
 </table>
