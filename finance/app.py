@@ -5,7 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
-from datetime import date
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -122,7 +122,7 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
-        
+
     return apology("TODO")
 
 
@@ -272,7 +272,7 @@ def sell():
 
     #The user input is now valid, let's modify the database:
     price = lookup(selected_symbol)['price']
-    db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, date.today(), selected_shares)
+    db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, datetime.now(), selected_shares)
     db.execute("UPDATE owned SET shares = shares - ?, holding = holding - ?, balance = balance + ? WHERE username = ?", selected_shares, selected_shares * price, (owned_shares - selected_shares) * price, username)
     db.execute("UPDATE owned SET total = balance + ? WHERE username = ?", (owned_shares - selected_shares) * price, username)
     return redirect("/")
