@@ -121,6 +121,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
+    if request.method == "GET":
+        
     return apology("TODO")
 
 
