@@ -80,6 +80,7 @@ def buy():
     elif int(num_shares) < 0:
         return apology("The number of shares should be positive")
 
+
     num_shares = int(num_shares)
 
     #now that the input is valid, Store the user purchase in the database:
