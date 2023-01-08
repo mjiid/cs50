@@ -250,6 +250,14 @@ def sell():
     if selected_symbol == None :
         return apology("You should select a symbol")
 
+    #if the user doesn't own the symbol:
+    owned = False
+    for sym in symbols:
+        if selected_symbol == sym[0]['symbol']:
+            owned = True
+    if not owned :
+        return apology("You don't own this symbol!")
+
     #if the user enters a negative number of shares:
     if selected_shares == "" or (int(selected_shares)) <= 0:
         return apology("The number of shares should be a positive number")
@@ -261,7 +269,11 @@ def sell():
         return apology("You don't own enough shares")
 
     #The user input is now valid, let's modify the database:
-    
+    price = lookup(selected_symbol)['price']
+    db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, date.today(), selected_shares)
+    db.execute("UPDATE owned SET shares = shares - ?", selected_shares)
+
+
 
 
 
