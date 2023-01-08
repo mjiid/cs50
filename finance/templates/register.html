@@ -2,9 +2,12 @@
 
 {% block main %}
 <form action="/register" method="post">
-    <input type = "text" name = "username" placeholder = "Username">
-    <input type = "password" name = "password" placeholder = "Password">
-    <input type = "password" name = "confirmation" placeholder = "Confirmation">
-    <input type = "submit" value = "Register">
+    <div>
+        
+    </div>
+    <input type = "text" class="form-control mx-auto w-auto"  name = "username" placeholder = "Username">
+    <input type = "password" class="form-control mx-auto w-auto"  name = "password" placeholder = "Password">
+    <input type = "password" class="form-control mx-auto w-auto"  name = "confirmation" placeholder = "Confirmation">
+    <input type = "submit" class="btn btn-primary" value = "Register">
 </form>
 {% endblock %}
