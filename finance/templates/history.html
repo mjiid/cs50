@@ -11,11 +11,11 @@
     </tr>
     {% for item in data %}
     <tr>
-        <td>item['symbol']</td>
-        <td>item['operation']</td>
-        <td>item['price']</td>
-        <td>item['shares']</td>
-        <td>item['date']</td>
+        <td>{{ item['symbol'] }}</td>
+        <td>{{ item['operation'] }}</td>
+        <td>{{ item['price'] }}</td>
+        <td>{{ item['shares'] }}</td>
+        <td>{{ item['date'] }}</td>
     </tr>
     {% endfor %}
 </table>
