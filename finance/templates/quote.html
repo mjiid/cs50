@@ -2,7 +2,9 @@
 
 {% block main %}
 <form action = "/quote" method = "post">
-    <input type = "text" name = "symbol" placeholder = "Enter the stock's name">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" type = "text" name = "symbol" placeholder = "Enter the stock's name">
+    </div>
     <button class="btn btn-primary" type="submit">Check price</button>
 </form>
 {% endblock %}

@@ -2,13 +2,17 @@
 
 {% block main %}
 <form action = "/sell" method = "post">
-    <select name = "symbol">
-        <option disabled selected value> -- Symbol -- </option>
-        {% for i in range(n) %}
-        <option> {{ symbols[i]['symbol'] }}</option>
-        {% endfor %}
-    </select>
-    <input name = "shares" type = "text" palceholder = "Number of shares">
+    <div class="mb-3">
+        <select name = "symbol" class="form-control mx-auto w-auto">
+            <option disabled selected value> -- Symbol -- </option>
+            {% for i in range(n) %}
+            <option> {{ symbols[i]['symbol'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" name = "shares" type = "number" palceholder = "Number of shares">
+    </div>
     <button class="btn btn-primary" type="submit">Sell</button>
 </form>
 {% endblock %}
