@@ -123,9 +123,8 @@ def history():
     """Show history of transactions"""
     if request.method == "GET":
         username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
-        vari = db.execute("SELECT * FROM purchases join sells USING(username) WHERE username = ? ORDER BY date", username)
-        print(vari)
-        return render_template("history.html")
+        userActivities = db.execute("SELECT * FROM purchases join sells USING(username) WHERE username = ? ORDER BY date", username)
+        return render_template("history.html", data = userActivities)
 
 
 
