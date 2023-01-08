@@ -122,7 +122,7 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
-
+        
     return apology("TODO")
 
 
