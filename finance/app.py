@@ -93,7 +93,7 @@ def buy():
         return apology("Sorry but you can't afford this deal")
 
     #The purchase is now valid, let's add it to the database:
-    db.execute("INSERT INTO purchases (username, symbol, PRICE, date, shares) VALUES (?, ?, ?, ?, ?)", username, symbol, price, datetime.now(), num_shares)
+    db.execute("INSERT INTO purchases (username, symbol, PRICE, date, shares) VALUES (?, ?, ?, ?, ?)", username, symbol, price, datetime.now().isoformat(), num_shares)
     db.execute("UPDATE users SET cash = ? WHERE id = ?", owned_cash - (num_shares * price), session['user_id'])
     owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
     #add the data to the owned table:
@@ -275,7 +275,7 @@ def sell():
 
     #The user input is now valid, let's modify the database:
     price = lookup(selected_symbol)['price']
-    db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, datetime.now(), selected_shares)
+    db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, datetime.now().isoformat(), selected_shares)
     db.execute("UPDATE owned SET shares = shares - ?, holding = holding - ?, balance = balance + ? WHERE username = ?", selected_shares, selected_shares * price, (owned_shares - selected_shares) * price, username)
     db.execute("UPDATE owned SET total = balance + ? WHERE username = ?", (owned_shares - selected_shares) * price, username)
     return redirect("/")
