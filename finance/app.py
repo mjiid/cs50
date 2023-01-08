@@ -123,7 +123,8 @@ def history():
     """Show history of transactions"""
     if request.method == "GET":
         
-    return apology("TODO")
+        return render_template("history.html")
+
 
 
 @app.route("/login", methods=["GET", "POST"])
