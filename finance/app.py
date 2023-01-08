@@ -124,6 +124,7 @@ def history():
     if request.method == "GET":
         username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
         userActivities = db.execute("SELECT * FROM purchases join sells USING(username) WHERE username = ? ORDER BY date", username)
+        print(userActivities)
         return render_template("history.html", data = userActivities)
 
 
