@@ -253,7 +253,7 @@ def sell():
     #if the user doesn't own the symbol:
     owned = False
     for sym in symbols:
-        if selected_symbol == sym[0]['symbol']:
+        if selected_symbol == sym['symbol']:
             owned = True
     if not owned :
         return apology("You don't own this symbol!")
@@ -273,6 +273,7 @@ def sell():
     db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, date.today(), selected_shares)
     db.execute("UPDATE owned SET shares = shares - ?", selected_shares)
 
+    return redirect("/")
 
 
 
