@@ -271,7 +271,7 @@ def sell():
     #The user input is now valid, let's modify the database:
     price = lookup(selected_symbol)['price']
     db.execute("INSERT INTO sells VALUES (?, ?, ?, ?, ?)", username, selected_symbol, price, date.today(), selected_shares)
-    db.execute("UPDATE owned SET shares = shares - ?, holding = holding - ?, balance = balance + ?, total = balance + ? WHERE username = ?", selected_shares, )
+    db.execute("UPDATE owned SET shares = shares - ?, holding = holding - ?, balance = balance + ?, total = balance + ? WHERE username = ?", selected_shares, selected_shares * price, selected_shares * price, )
 
     return redirect("/")
 
