@@ -122,7 +122,8 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
-        
+        vari = db.execute("SELECT * FROM purchases join sells USING(username) ORDER BY date")
+        print(vari)
         return render_template("history.html")
 
 
