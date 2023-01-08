@@ -93,7 +93,7 @@ def buy():
         return apology("Sorry but you can't afford this deal")
 
     #The purchase is now valid, let's add it to the database:
-    db.execute("INSERT INTO purchases (username, symbol, PRICE, date, shares) VALUES (?, ?, ?, ?, ?)", username, symbol, price, datetime.now().isoformat(), num_shares)
+    db.execute("INSERT INTO purchases (username, symbol, price, date, shares) VALUES (?, ?, ?, ?, ?)", username, symbol, price, datetime.now().isoformat(), num_shares)
     db.execute("UPDATE users SET cash = ? WHERE id = ?", owned_cash - (num_shares * price), session['user_id'])
     owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
     #add the data to the owned table:

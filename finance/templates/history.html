@@ -10,11 +10,13 @@
         <th>Date and time</th>
     </tr>
     {% for item in data %}
-    <tr>item['symbol']</tr>
-    <tr>item['operation']</tr>
-    <tr>item['price']</tr>
-    <tr>item['shares']</tr>
-    <tr>item['symbol']</tr>
+    <tr>
+        <td>item['symbol']</td>
+        <td>item['operation']</td>
+        <td>item['price']</td>
+        <td>item['shares']</td>
+        <td>item['date']</td>
+    </tr>
     {% endfor %}
 </table>
 {% endblock %}
