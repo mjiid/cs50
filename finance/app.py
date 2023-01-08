@@ -107,7 +107,7 @@ def buy():
     if owned:
         owned_cash = db.execute("SELECT cash FROM users WHERE id = ?", session['user_id'])[0]['cash']
         shares = db.execute("SELECT shares FROM owned WHERE username = ?", username)[0]['shares']
-        db.execute("UPDATE owned SET shares = ?, price = ?, holding = holding + , balance = ?, total = ?", shares + num_shares, price, num_shares * price, owned_cash, (owned_cash + (num_shares + shares) * lookup(symbol)['price']))
+        db.execute("UPDATE owned SET shares = ?, price = ?, holding = holding + ?, balance = ?, total = ?", shares + num_shares, price, num_shares * price, owned_cash, (owned_cash + (num_shares + shares) * lookup(symbol)['price']))
     else:
         db.execute("INSERT INTO owned (username, symbol, shares, price, holding, balance, total) VALUES (?, ?, ?, ?, ?, ?, ?)", username, symbol, num_shares, price, num_shares * price, owned_cash, owned_cash + num_shares * lookup(symbol)['price'])
 
