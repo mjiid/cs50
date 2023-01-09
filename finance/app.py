@@ -318,6 +318,14 @@ def change():
     if not check_password_hash(user_password, old_password):
         return apology("This is not your password")
 
+    if new_password != old_password:
+        return apology("The password and the confirmation you entered are different!")
+
+    # Change the password in the database:
+    
+
+
+
 
 
 
