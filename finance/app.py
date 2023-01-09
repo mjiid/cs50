@@ -297,5 +297,29 @@ def change():
     if request.method == "GET":
         return render_template("change.html")
 
+    # Get the user password from the database:
+    username = db.execute("SELECT username FROM users WHERE id = ?", session['user_id'])[0]['username']
+    user_password = check_password_hash(db.execute("SELECT hash FROM users WHERE username = ?", username)[0]['hash'])
+
+    # Get the user input:
+    old_password = request.form.get("old")
+    new_password = request.form.get("new")
+    confirmation = request.form.get("confirmation")
+
+    if old_password == "":
+        return apology("Enter your old password")
+
+    if new_password == "":
+        return apology("Enter a new password")
+
+    if confirmation == "":
+        return apology("Confirm your password")
+
+    if user_password != old_password:
+        return apology("This is not your password")
+
+
+
+
 
 
