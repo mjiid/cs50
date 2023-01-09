@@ -291,5 +291,10 @@ def sell():
     return redirect("/")
 
 
+@app.route("/change", methods=["GET", "POST"])
+@login_required
+def change():
+    
+
 
 
