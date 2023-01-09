@@ -75,6 +75,7 @@ def buy():
     elif lookup(symbol) == None:
         return apology("This symbol does not exist")
 
+    if number
     try:
         num_shares = int(num_shares)
     except ValueError:
