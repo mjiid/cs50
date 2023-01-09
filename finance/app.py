@@ -85,8 +85,6 @@ def buy():
 
 
 
-    num_shares = int(num_shares)
-
     #now that the input is valid, Store the user purchase in the database:
     #Get the data about the user from the database:
     price = lookup(symbol)['price']
