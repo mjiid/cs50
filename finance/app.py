@@ -318,11 +318,15 @@ def change():
     if not check_password_hash(user_password, old_password):
         return apology("This is not your password")
 
-    if new_password != old_password:
+    if new_password != confirmation:
         return apology("The password and the confirmation you entered are different!")
 
     # Change the password in the database:
-    
+    new_password = generate_password_hash(new_password)
+    db.execute("UPDATE users SET hash = ? WHERE username = ?", new_password, username)
+
+    # Send the user to the homepage:
+    return redirect("/")
 
 
 
