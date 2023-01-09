@@ -75,12 +75,21 @@ def buy():
     elif lookup(symbol) == None:
         return apology("This symbol does not exist")
 
-    if number
+    #Handling fractional & literal inputs :
+    try:
+        num_shares = float(num_shares)
+        if num_shares != int(num_shares):
+            return apology("You should enter an integer")
+    except ValueError:
+        return apology("You should enter an integer")
+
+    #Handling literal inputs:
     try:
         num_shares = int(num_shares)
     except ValueError:
         return apology("You should enter an integer")
 
+    #Handling negative inputs:
     if num_shares < 0:
         return apology("The number of shares should be positive")
 
