@@ -78,7 +78,7 @@ def buy():
     if num_shares == '':
         return apology("You should enter the number of shares")
     elif int(num_shares) < 0:
-        return apology("The number of shares should be positive")
+        return apology("The number of shares should be positive")rt 
 
 
     num_shares = int(num_shares)
