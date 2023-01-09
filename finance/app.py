@@ -294,7 +294,8 @@ def sell():
 @app.route("/change", methods=["GET", "POST"])
 @login_required
 def change():
-    
+    if request.method == "GET":
+        return render_template("change.html")
 
 
 
