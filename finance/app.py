@@ -80,9 +80,8 @@ def buy():
     except ValueError:
         return apology("You should enter an integer")
 
-    if int(num_shares) < 0:
+    if num_shares < 0:
         return apology("The number of shares should be positive")
-
 
 
     #now that the input is valid, Store the user purchase in the database:
