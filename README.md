@@ -21,9 +21,9 @@ This repository contains my solutions for Harvard's CS50x course from 2022. Thes
 - **[tideman](pset3/tideman)**: Implement a ranked pairs voting system for elections using the Tideman method.
 
 ### Problem Set 4: Memory
-- **[filter-more](pset4/filter-more/**: Implement additional image filtering functions like edge detection.
-- **[volume](pset4/volume/**: Develop a program to adjust the volume of audio files by a specified factor.
-- **[recover](pset4/recover/**: A program that recovers JPEG images from a forensic image file.
+- **[filter-more](pset4/filter-more/)**: Implement additional image filtering functions like edge detection.
+- **[volume](pset4/volume/)**: Develop a program to adjust the volume of audio files by a specified factor.
+- **[recover](pset4/recover/)**: A program that recovers JPEG images from a forensic image file.
 
 ### Problem Set 5: Data Structures
 - **[speller](pset5/speller/)**: Create a program to check the spelling of words using a hash table (dictionary).
