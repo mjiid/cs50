@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<ul style = "list-style-type:none; font-weight:bold;">
+    <li>Company name : {{ symbol_data['name'] }}</li>
+    <li>Symbol : {{ symbol_data['symbol'] }}</li>
+    <li>Price : {{ usd(symbol_data['price']) }}</li>
+</ul>
+{% endblock %}
