@@ -47,6 +47,9 @@ This repository contains my solutions for Harvard's CS50x course from 2022. Thes
 - **[birthdays](pset9/birthdays/)**: Develop a web application to keep track of birthdays.
 - **[finance](pset9/finance/)**: Create a web application for simulating stock trading using Flask and SQL databases.
 
+### Final Project:
+    - Check out [CS50 Final Project](https://github.com/mjiid/CS50-final-project)
+
 ## Full Disclosure
 
 These solutions were developed while taking the CS50x course 
